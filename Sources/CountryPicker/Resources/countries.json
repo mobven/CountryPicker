@@ -1,0 +1,962 @@
+[
+  {
+    "phoneCode": "93",
+    "isoCode": "AF"
+  },
+  {
+    "phoneCode": "355",
+    "isoCode": "AL"
+  },
+  {
+    "phoneCode": "213",
+    "isoCode": "DZ"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "AS"
+  },
+  {
+    "phoneCode": "376",
+    "isoCode": "AD"
+  },
+  {
+    "phoneCode": "244",
+    "isoCode": "AO"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "AI"
+  },
+  {
+    "phoneCode": "672",
+    "isoCode": "AQ"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "AG"
+  },
+  {
+    "phoneCode": "54",
+    "isoCode": "AR"
+  },
+  {
+    "phoneCode": "374",
+    "isoCode": "AM"
+  },
+  {
+    "phoneCode": "297",
+    "isoCode": "AW"
+  },
+  {
+    "phoneCode": "61",
+    "isoCode": "AU"
+  },
+  {
+    "phoneCode": "43",
+    "isoCode": "AT"
+  },
+  {
+    "phoneCode": "994",
+    "isoCode": "AZ"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "BS"
+  },
+  {
+    "phoneCode": "973",
+    "isoCode": "BH"
+  },
+  {
+    "phoneCode": "880",
+    "isoCode": "BD"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "BB"
+  },
+  {
+    "phoneCode": "375",
+    "isoCode": "BY"
+  },
+  {
+    "phoneCode": "32",
+    "isoCode": "BE"
+  },
+  {
+    "phoneCode": "501",
+    "isoCode": "BZ"
+  },
+  {
+    "phoneCode": "229",
+    "isoCode": "BJ"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "BM"
+  },
+  {
+    "phoneCode": "975",
+    "isoCode": "BT"
+  },
+  {
+    "phoneCode": "591",
+    "isoCode": "BO"
+  },
+  {
+    "phoneCode": "387",
+    "isoCode": "BA"
+  },
+  {
+    "phoneCode": "267",
+    "isoCode": "BW"
+  },
+  {
+    "phoneCode": "55",
+    "isoCode": "BR"
+  },
+  {
+    "phoneCode": "246",
+    "isoCode": "IO"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "VG"
+  },
+  {
+    "phoneCode": "673",
+    "isoCode": "BN"
+  },
+  {
+    "phoneCode": "359",
+    "isoCode": "BG"
+  },
+  {
+    "phoneCode": "226",
+    "isoCode": "BF"
+  },
+  {
+    "phoneCode": "257",
+    "isoCode": "BI"
+  },
+  {
+    "phoneCode": "855",
+    "isoCode": "KH"
+  },
+  {
+    "phoneCode": "237",
+    "isoCode": "CM"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "CA"
+  },
+  {
+    "phoneCode": "238",
+    "isoCode": "CV"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "KY"
+  },
+  {
+    "phoneCode": "236",
+    "isoCode": "CF"
+  },
+  {
+    "phoneCode": "235",
+    "isoCode": "TD"
+  },
+  {
+    "phoneCode": "56",
+    "isoCode": "CL"
+  },
+  {
+    "phoneCode": "86",
+    "isoCode": "CN"
+  },
+  {
+    "phoneCode": "61",
+    "isoCode": "CX"
+  },
+  {
+    "phoneCode": "61",
+    "isoCode": "CC"
+  },
+  {
+    "phoneCode": "57",
+    "isoCode": "CO"
+  },
+  {
+    "phoneCode": "269",
+    "isoCode": "KM"
+  },
+  {
+    "phoneCode": "682",
+    "isoCode": "CK"
+  },
+  {
+    "phoneCode": "506",
+    "isoCode": "CR"
+  },
+  {
+    "phoneCode": "385",
+    "isoCode": "HR"
+  },
+  {
+    "phoneCode": "53",
+    "isoCode": "CU"
+  },
+  {
+    "phoneCode": "599",
+    "isoCode": "CW"
+  },
+  {
+    "phoneCode": "357",
+    "isoCode": "CY"
+  },
+  {
+    "phoneCode": "420",
+    "isoCode": "CZ"
+  },
+  {
+    "phoneCode": "243",
+    "isoCode": "CD"
+  },
+  {
+    "phoneCode": "45",
+    "isoCode": "DK"
+  },
+  {
+    "phoneCode": "253",
+    "isoCode": "DJ"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "DM"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "DO"
+  },
+  {
+    "phoneCode": "670",
+    "isoCode": "TL"
+  },
+  {
+    "phoneCode": "593",
+    "isoCode": "EC"
+  },
+  {
+    "phoneCode": "20",
+    "isoCode": "EG"
+  },
+  {
+    "phoneCode": "503",
+    "isoCode": "SV"
+  },
+  {
+    "phoneCode": "240",
+    "isoCode": "GQ"
+  },
+  {
+    "phoneCode": "291",
+    "isoCode": "ER"
+  },
+  {
+    "phoneCode": "372",
+    "isoCode": "EE"
+  },
+  {
+    "phoneCode": "251",
+    "isoCode": "ET"
+  },
+  {
+    "phoneCode": "500",
+    "isoCode": "FK"
+  },
+  {
+    "phoneCode": "298",
+    "isoCode": "FO"
+  },
+  {
+    "phoneCode": "679",
+    "isoCode": "FJ"
+  },
+  {
+    "phoneCode": "358",
+    "isoCode": "FI"
+  },
+  {
+    "phoneCode": "33",
+    "isoCode": "FR"
+  },
+  {
+    "phoneCode": "689",
+    "isoCode": "PF"
+  },
+  {
+    "phoneCode": "241",
+    "isoCode": "GA"
+  },
+  {
+    "phoneCode": "220",
+    "isoCode": "GM"
+  },
+  {
+    "phoneCode": "995",
+    "isoCode": "GE"
+  },
+  {
+    "phoneCode": "49",
+    "isoCode": "DE"
+  },
+  {
+    "phoneCode": "233",
+    "isoCode": "GH"
+  },
+  {
+    "phoneCode": "350",
+    "isoCode": "GI"
+  },
+  {
+    "phoneCode": "30",
+    "isoCode": "GR"
+  },
+  {
+    "phoneCode": "299",
+    "isoCode": "GL"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "GD"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "GU"
+  },
+  {
+    "phoneCode": "502",
+    "isoCode": "GT"
+  },
+  {
+    "phoneCode": "44",
+    "isoCode": "GG"
+  },
+  {
+    "phoneCode": "224",
+    "isoCode": "GN"
+  },
+  {
+    "phoneCode": "245",
+    "isoCode": "GW"
+  },
+  {
+    "phoneCode": "592",
+    "isoCode": "GY"
+  },
+  {
+    "phoneCode": "509",
+    "isoCode": "HT"
+  },
+  {
+    "phoneCode": "504",
+    "isoCode": "HN"
+  },
+  {
+    "phoneCode": "852",
+    "isoCode": "HK"
+  },
+  {
+    "phoneCode": "36",
+    "isoCode": "HU"
+  },
+  {
+    "phoneCode": "354",
+    "isoCode": "IS"
+  },
+  {
+    "phoneCode": "91",
+    "isoCode": "IN"
+  },
+  {
+    "phoneCode": "62",
+    "isoCode": "ID"
+  },
+  {
+    "phoneCode": "98",
+    "isoCode": "IR"
+  },
+  {
+    "phoneCode": "964",
+    "isoCode": "IQ"
+  },
+  {
+    "phoneCode": "353",
+    "isoCode": "IE"
+  },
+  {
+    "phoneCode": "44",
+    "isoCode": "IM"
+  },
+  {
+    "phoneCode": "972",
+    "isoCode": "IL"
+  },
+  {
+    "phoneCode": "39",
+    "isoCode": "IT"
+  },
+  {
+    "phoneCode": "225",
+    "isoCode": "CI"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "JM"
+  },
+  {
+    "phoneCode": "81",
+    "isoCode": "JP"
+  },
+  {
+    "phoneCode": "44",
+    "isoCode": "JE"
+  },
+  {
+    "phoneCode": "962",
+    "isoCode": "JO"
+  },
+  {
+    "phoneCode": "7",
+    "isoCode": "KZ"
+  },
+  {
+    "phoneCode": "254",
+    "isoCode": "KE"
+  },
+  {
+    "phoneCode": "686",
+    "isoCode": "KI"
+  },
+  {
+    "phoneCode": "383",
+    "isoCode": "XK"
+  },
+  {
+    "phoneCode": "965",
+    "isoCode": "KW"
+  },
+  {
+    "phoneCode": "996",
+    "isoCode": "KG"
+  },
+  {
+    "phoneCode": "856",
+    "isoCode": "LA"
+  },
+  {
+    "phoneCode": "371",
+    "isoCode": "LV"
+  },
+  {
+    "phoneCode": "961",
+    "isoCode": "LB"
+  },
+  {
+    "phoneCode": "266",
+    "isoCode": "LS"
+  },
+  {
+    "phoneCode": "231",
+    "isoCode": "LR"
+  },
+  {
+    "phoneCode": "218",
+    "isoCode": "LY"
+  },
+  {
+    "phoneCode": "423",
+    "isoCode": "LI"
+  },
+  {
+    "phoneCode": "370",
+    "isoCode": "LT"
+  },
+  {
+    "phoneCode": "352",
+    "isoCode": "LU"
+  },
+  {
+    "phoneCode": "853",
+    "isoCode": "MO"
+  },
+  {
+    "phoneCode": "389",
+    "isoCode": "MK"
+  },
+  {
+    "phoneCode": "261",
+    "isoCode": "MG"
+  },
+  {
+    "phoneCode": "265",
+    "isoCode": "MW"
+  },
+  {
+    "phoneCode": "60",
+    "isoCode": "MY"
+  },
+  {
+    "phoneCode": "960",
+    "isoCode": "MV"
+  },
+  {
+    "phoneCode": "223",
+    "isoCode": "ML"
+  },
+  {
+    "phoneCode": "356",
+    "isoCode": "MT"
+  },
+  {
+    "phoneCode": "692",
+    "isoCode": "MH"
+  },
+  {
+    "phoneCode": "222",
+    "isoCode": "MR"
+  },
+  {
+    "phoneCode": "230",
+    "isoCode": "MU"
+  },
+  {
+    "phoneCode": "262",
+    "isoCode": "YT"
+  },
+  {
+    "phoneCode": "52",
+    "isoCode": "MX"
+  },
+  {
+    "phoneCode": "691",
+    "isoCode": "FM"
+  },
+  {
+    "phoneCode": "373",
+    "isoCode": "MD"
+  },
+  {
+    "phoneCode": "377",
+    "isoCode": "MC"
+  },
+  {
+    "phoneCode": "976",
+    "isoCode": "MN"
+  },
+  {
+    "phoneCode": "382",
+    "isoCode": "ME"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "MS"
+  },
+  {
+    "phoneCode": "212",
+    "isoCode": "MA"
+  },
+  {
+    "phoneCode": "258",
+    "isoCode": "MZ"
+  },
+  {
+    "phoneCode": "95",
+    "isoCode": "MM"
+  },
+  {
+    "phoneCode": "264",
+    "isoCode": "NA"
+  },
+  {
+    "phoneCode": "674",
+    "isoCode": "NR"
+  },
+  {
+    "phoneCode": "977",
+    "isoCode": "NP"
+  },
+  {
+    "phoneCode": "31",
+    "isoCode": "NL"
+  },
+  {
+    "phoneCode": "599",
+    "isoCode": "AN"
+  },
+  {
+    "phoneCode": "687",
+    "isoCode": "NC"
+  },
+  {
+    "phoneCode": "64",
+    "isoCode": "NZ"
+  },
+  {
+    "phoneCode": "505",
+    "isoCode": "NI"
+  },
+  {
+    "phoneCode": "227",
+    "isoCode": "NE"
+  },
+  {
+    "phoneCode": "234",
+    "isoCode": "NG"
+  },
+  {
+    "phoneCode": "683",
+    "isoCode": "NU"
+  },
+  {
+    "phoneCode": "850",
+    "isoCode": "KP"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "MP"
+  },
+  {
+    "phoneCode": "47",
+    "isoCode": "NO"
+  },
+  {
+    "phoneCode": "968",
+    "isoCode": "OM"
+  },
+  {
+    "phoneCode": "92",
+    "isoCode": "PK"
+  },
+  {
+    "phoneCode": "680",
+    "isoCode": "PW"
+  },
+  {
+    "phoneCode": "970",
+    "isoCode": "PS"
+  },
+  {
+    "phoneCode": "507",
+    "isoCode": "PA"
+  },
+  {
+    "phoneCode": "675",
+    "isoCode": "PG"
+  },
+  {
+    "phoneCode": "595",
+    "isoCode": "PY"
+  },
+  {
+    "phoneCode": "51",
+    "isoCode": "PE"
+  },
+  {
+    "phoneCode": "63",
+    "isoCode": "PH"
+  },
+  {
+    "phoneCode": "64",
+    "isoCode": "PN"
+  },
+  {
+    "phoneCode": "48",
+    "isoCode": "PL"
+  },
+  {
+    "phoneCode": "351",
+    "isoCode": "PT"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "PR"
+  },
+  {
+    "phoneCode": "974",
+    "isoCode": "QA"
+  },
+  {
+    "phoneCode": "242",
+    "isoCode": "CG"
+  },
+  {
+    "phoneCode": "262",
+    "isoCode": "RE"
+  },
+  {
+    "phoneCode": "40",
+    "isoCode": "RO"
+  },
+  {
+    "phoneCode": "7",
+    "isoCode": "RU"
+  },
+  {
+    "phoneCode": "250",
+    "isoCode": "RW"
+  },
+  {
+    "phoneCode": "590",
+    "isoCode": "BL"
+  },
+  {
+    "phoneCode": "290",
+    "isoCode": "SH"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "KN"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "LC"
+  },
+  {
+    "phoneCode": "590",
+    "isoCode": "MF"
+  },
+  {
+    "phoneCode": "508",
+    "isoCode": "PM"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "VC"
+  },
+  {
+    "phoneCode": "685",
+    "isoCode": "WS"
+  },
+  {
+    "phoneCode": "378",
+    "isoCode": "SM"
+  },
+  {
+    "phoneCode": "239",
+    "isoCode": "ST"
+  },
+  {
+    "phoneCode": "966",
+    "isoCode": "SA"
+  },
+  {
+    "phoneCode": "221",
+    "isoCode": "SN"
+  },
+  {
+    "phoneCode": "381",
+    "isoCode": "RS"
+  },
+  {
+    "phoneCode": "248",
+    "isoCode": "SC"
+  },
+  {
+    "phoneCode": "232",
+    "isoCode": "SL"
+  },
+  {
+    "phoneCode": "65",
+    "isoCode": "SG"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "SX"
+  },
+  {
+    "phoneCode": "421",
+    "isoCode": "SK"
+  },
+  {
+    "phoneCode": "386",
+    "isoCode": "SI"
+  },
+  {
+    "phoneCode": "677",
+    "isoCode": "SB"
+  },
+  {
+    "phoneCode": "252",
+    "isoCode": "SO"
+  },
+  {
+    "phoneCode": "27",
+    "isoCode": "ZA"
+  },
+  {
+    "phoneCode": "82",
+    "isoCode": "KR"
+  },
+  {
+    "phoneCode": "211",
+    "isoCode": "SS"
+  },
+  {
+    "phoneCode": "34",
+    "isoCode": "ES"
+  },
+  {
+    "phoneCode": "94",
+    "isoCode": "LK"
+  },
+  {
+    "phoneCode": "249",
+    "isoCode": "SD"
+  },
+  {
+    "phoneCode": "597",
+    "isoCode": "SR"
+  },
+  {
+    "phoneCode": "47",
+    "isoCode": "SJ"
+  },
+  {
+    "phoneCode": "268",
+    "isoCode": "SZ"
+  },
+  {
+    "phoneCode": "46",
+    "isoCode": "SE"
+  },
+  {
+    "phoneCode": "41",
+    "isoCode": "CH"
+  },
+  {
+    "phoneCode": "963",
+    "isoCode": "SY"
+  },
+  {
+    "phoneCode": "886",
+    "isoCode": "TW"
+  },
+  {
+    "phoneCode": "992",
+    "isoCode": "TJ"
+  },
+  {
+    "phoneCode": "255",
+    "isoCode": "TZ"
+  },
+  {
+    "phoneCode": "66",
+    "isoCode": "TH"
+  },
+  {
+    "phoneCode": "228",
+    "isoCode": "TG"
+  },
+  {
+    "phoneCode": "690",
+    "isoCode": "TK"
+  },
+  {
+    "phoneCode": "676",
+    "isoCode": "TO"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "TT"
+  },
+  {
+    "phoneCode": "216",
+    "isoCode": "TN"
+  },
+  {
+    "phoneCode": "90",
+    "isoCode": "TR"
+  },
+  {
+    "phoneCode": "993",
+    "isoCode": "TM"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "TC"
+  },
+  {
+    "phoneCode": "688",
+    "isoCode": "TV"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "VI"
+  },
+  {
+    "phoneCode": "256",
+    "isoCode": "UG"
+  },
+  {
+    "phoneCode": "380",
+    "isoCode": "UA"
+  },
+  {
+    "phoneCode": "971",
+    "isoCode": "AE"
+  },
+  {
+    "phoneCode": "44",
+    "isoCode": "GB"
+  },
+  {
+    "phoneCode": "1",
+    "isoCode": "US"
+  },
+  {
+    "phoneCode": "598",
+    "isoCode": "UY"
+  },
+  {
+    "phoneCode": "998",
+    "isoCode": "UZ"
+  },
+  {
+    "phoneCode": "678",
+    "isoCode": "VU"
+  },
+  {
+    "phoneCode": "379",
+    "isoCode": "VA"
+  },
+  {
+    "phoneCode": "58",
+    "isoCode": "VE"
+  },
+  {
+    "phoneCode": "84",
+    "isoCode": "VN"
+  },
+  {
+    "phoneCode": "681",
+    "isoCode": "WF"
+  },
+  {
+    "phoneCode": "212",
+    "isoCode": "EH"
+  },
+  {
+    "phoneCode": "967",
+    "isoCode": "YE"
+  },
+  {
+    "phoneCode": "260",
+    "isoCode": "ZM"
+  },
+  {
+    "phoneCode": "263",
+    "isoCode": "ZW"
+  }
+]
