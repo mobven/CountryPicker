@@ -97,6 +97,20 @@ public protocol Configuration {
 
 ```
 
+### Localization
+
+`CountryPicker` is use current `NSLocale` for localization of country name, you can set custom locale before presenting picker.
+```
+  CountryManager.shared.localeIdentifier = "en_US"
+  let countryPicker = CountryPickerViewController()
+  self.present(countryPicker, animated: true)
+```
+For page title and close button text you can set localized text with `Configration` properties
+```
+        CountryManager.shared.config.titleText = "Country Picker"
+        CountryManager.shared.config.closeButtonText = "Close"
+```
+`CountryPicker` v1.0.0 is support RTL except displaying localized phone codes.
 
 ## What's next
 - [ ] SwiftUI version. 
