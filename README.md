@@ -3,21 +3,28 @@
 Very simple country picker with fresh design.
 
 ## Screenshots
-<img src= "Screenshots/iPhone-12-white.png" width="275" height = "500">|<img src= "Screenshots/iPhone-12-dark-mode.png" width="275" height = "500">| <img src= "Screenshots/iPhone-12-white-arabic.png" width="275" height = "500">
+<img src= "Screenshots/iPhone-12-white.png" width="335" height = "724">|<img src= "Screenshots/iPhone-12-dark-mode.png" width="335" height = "724">| <img src= "Screenshots/iPhone-12-white-arabic.png" width="335" height = "724">
+
+## Requirements
+* iOS 13+
+* Xcode 12+
+* Swift 5.3+
 
 ## Installation
 
 Currently CountryPicker is only avaliable via SPM. You can also add manually to your project.
 
 ### SPM
-Add 
+If you have already Swift package set up, add CountryPicker as a dependency to your dependencies in your `Package.swift` file.
 ```
-https://github.com/mobven/CountryPicker.git
+dependencies: [
+    .package(url: "https://github.com/mobven/CountryPicker.git")
+]
 ```
 
 ## Usage
 
-Basically, you can present CountryPicker in your ViewController with creating instance from `CountryPickerViewController`. You can set default country for the picker with selectedCountry variable (Default value is "TR"). For using delegate method you can just conform `CountryPickerDelegate` in your `ViewController`.
+Simply, you can use with presenting `CountryPickerViewController` instance in your `UIViewController` . You can alse set default country for the picker with selectedCountry variable (Default value is "TR"). For use delegate method you should conform `CountryPickerDelegate` in your `UIViewController`.
 
 ```
 let countryPicker = CountryPickerViewController()
@@ -28,7 +35,7 @@ self.present(countryPicker, animated: true)
 
 #### CountryPickerDelegate
 
-Delegate method will be called with country selection, you can update your outlets  with country model.
+Delegate method will be called with country selection, you can update your outlets with new selected country model.
 
 ```
 public protocol CountryPickerDelegate: AnyObject {
@@ -71,11 +78,25 @@ public protocol Configuration {
     var searchBarCornerRadius: CGFloat { get set }
 }
 ```
-  Example customization
+  ##### Example 
+  You can customize properties like this,
 ```
   CountryManager.shared.config.countryNameTextColor = .black
   CountryManager.shared.config.countryNameTextFont = UIFont.systemFont(ofSize: 16)
 ```
+  or you can create your own `Config`
+
+```
+  let configMaker = Config(
+      countryNameTextColor: .black,
+      countryNameTextFont: UIFont.systemFont(ofSize: 16),
+      selectedCountryCodeBackgroundColor: .green
+  )
+
+  CountryManager.shared.config = configMaker()
+
+```
+
 
 ## What's next
 - [ ] SwiftUI version. 
