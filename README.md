@@ -59,23 +59,23 @@ public protocol Configuration {
     var countryNameTextFont: UIFont { get set }
     var selectedCountryCodeBackgroundColor: UIColor { get set }
     var selectedCountryCodeTextColor: UIColor { get set }
+    var selectedCountryCodeCornerRadius: CGFloat { get set }
     var countryCodeFont: UIFont { get set }
     var countryCodeTextColor: UIColor { get set }
-    var countryCodeCornerRadius: CGFloat { get set }
     var closeButtonTextColor: UIColor { get set }
     var closeButtonFont: UIFont { get set }
+    var closeButtonText: String { get set }
     var titleTextColor: UIColor { get set }
     var titleFont: UIFont { get set }
-    var searchBarPlaceholder: String { get set }
-    var closeButtonText: String { get set }
     var titleText: String { get set }
-    var separatorColor: UIColor { get set }
+    var searchBarPlaceholder: String { get set }
     var searchBarBackgroundColor: UIColor { get set }
     var searchBarPlaceholderColor: UIColor { get set }
     var searchBarFont: UIFont { get set }
     var searchBarLeftImage: UIImage? { get set }
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
+    var separatorColor: UIColor { get set }
 }
 ```
   ##### Example 
@@ -114,7 +114,7 @@ For page title and close button text you can set localized text with `Configrati
 
 ## What's next
 - [ ] SwiftUI version. 
-- [ ] Support for iOS 13 Below.
+- [ ] Support  below iOS 13.
   
 ---
 Developed with 🖤 at [Mobven](https://mobven.com/)
