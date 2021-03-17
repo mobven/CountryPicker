@@ -115,14 +115,14 @@ public protocol Configuration {
 ```
 For page title and close button text you can set localized text with `Configration` properties
 ```
-        CountryManager.shared.config.titleText = "Country Picker"
-        CountryManager.shared.config.closeButtonText = "Close"
+  CountryManager.shared.config.titleText = "Country Picker"
+  CountryManager.shared.config.closeButtonText = "Close"
 ```
 `CountryPicker` v1.0.0 is support RTL except displaying localized phone codes.
 
 ## What's next
 - [ ] SwiftUI version. 
-- [ ] Support  below iOS 13.
+- [ ] Support below iOS 13.
   
 ---
 Developed with 🖤 at [Mobven](https://mobven.com/)
