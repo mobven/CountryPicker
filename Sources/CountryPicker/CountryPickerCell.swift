@@ -29,7 +29,7 @@ public final class CountryPickerCell: UITableViewCell {
 
     lazy var countryCodeContainerView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = CountryManager.shared.config.countryCodeCornerRadius
+        view.layer.cornerRadius = CountryManager.shared.config.selectedCountryCodeCornerRadius
         return view
     }()
 
