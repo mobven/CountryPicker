@@ -1,6 +1,6 @@
 # CountryPicker
 
-Very simple country picker with fresh design.
+Very simple country picker for iOS with elegant design. It uses unicode for country flags.
 
 ## Screenshots
 <img src= "Screenshots/iPhone-12-white.png" width="335" height = "724">|<img src= "Screenshots/iPhone-12-dark-mode.png" width="335" height = "724">| <img src= "Screenshots/iPhone-12-white-arabic.png" width="335" height = "724">
@@ -95,6 +95,14 @@ public protocol Configuration {
 
   CountryManager.shared.config = configMaker()
 
+```
+
+### Custom UI 
+
+`getCountries()` method in `CountryManager` will return a `Country` array for you, so you can create your own custom UI implementations with this array. 
+
+```
+ let countries = CountryManager.shared.getCountries()
 ```
 
 ### Localization
