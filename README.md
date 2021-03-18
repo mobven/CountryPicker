@@ -97,12 +97,18 @@ public protocol Configuration {
 
 ```
 
-### Custom UI 
+#### Custom UI 
 
 `getCountries()` method in `CountryManager` will return a `Country` array for you, so you can create your own custom UI implementations with this array. 
 
 ```
  let countries = CountryManager.shared.getCountries()
+```
+#### Flags
+
+`CountryPicker` uses unicode for country flags. You can use with iso codes like the example below.
+```
+  label.text = "US".getFlag()
 ```
 
 ### Localization
