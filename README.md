@@ -96,26 +96,26 @@ or you can create your own `Config`
 
 `getCountries()` method in `CountryManager` will return a `Country` array for you, so you can create your own custom UI implementations with this array. 
 
-```
+```swift
   let countries = CountryManager.shared.getCountries()
 ```
 #### Flags
 
 `CountryPicker` uses unicode for country flags. You can use with iso codes like the example below.
-```
+```swift
   label.text = "US".getFlag()
 ```
 
 ### Localization
 
 `CountryPicker` is use current `NSLocale` for localization of country name, you can set custom locale before presenting picker.
-```
+```swift
   CountryManager.shared.localeIdentifier = "en_US"
   let countryPicker = CountryPickerViewController()
   self.present(countryPicker, animated: true)
 ```
 For page title and close button text you can set localized text with `Configration` properties
-```
+```swift
   CountryManager.shared.config.titleText = "Country Picker"
   CountryManager.shared.config.closeButtonText = "Close"
 ```
