@@ -16,7 +16,7 @@ Currently CountryPicker is only avaliable via SPM. You can also add manually to 
 
 ### SPM
 If you have already Swift package set up, add CountryPicker as a dependency to your dependencies in your `Package.swift` file.
-```
+```swift
 dependencies: [
     .package(url: "https://github.com/mobven/CountryPicker.git")
 ]
@@ -24,9 +24,9 @@ dependencies: [
 
 ## Usage
 
-Simply, you can use with presenting `CountryPickerViewController` instance in your `UIViewController` . You can alse set default country for the picker with selectedCountry variable (Default value is "TR"). For use delegate method you should conform `CountryPickerDelegate` in your `UIViewController`.
+Simply, you can use with presenting `CountryPickerViewController` instance in your `UIViewController` . You can alse set default country for the picker with selectedCountry variable (Default value is "TR"). For use delegate method you should conform to `CountryPickerDelegate` in your `UIViewController`.
 
-```
+```swift
 let countryPicker = CountryPickerViewController()
 countryPicker.selectedCountry = "TR"
 countryPicker.delegate = self
@@ -37,11 +37,7 @@ self.present(countryPicker, animated: true)
 
 Delegate method will be called with country selection, you can update your outlets with new selected country model.
 
-```
-public protocol CountryPickerDelegate: AnyObject {
-    func countryPicker(didSelect country: Country)
-}
-
+```swift
 extension ViewController: CountryPickerDelegate {
     func countryPicker(didSelect country: Country) {
         countryTextField.text = country.isoCode.getFlag() + " " + country.localizedName
@@ -53,7 +49,7 @@ extension ViewController: CountryPickerDelegate {
 
 Default picker theme is supporting Dark Mode for iO13+ devices. You can easly customize the picker with editing `Configuration` properties. If you are adding custom colors, you should add dark appearance color for dark mode support.
 
-```
+```swift
 public protocol Configuration {
     var countryNameTextColor: UIColor { get set }
     var countryNameTextFont: UIFont { get set }
@@ -78,15 +74,15 @@ public protocol Configuration {
     var separatorColor: UIColor { get set }
 }
 ```
-  ##### Example 
-  You can customize properties like this,
-```
+##### Example 
+You can customize properties like this,
+```swift
   CountryManager.shared.config.countryNameTextColor = .black
   CountryManager.shared.config.countryNameTextFont = UIFont.systemFont(ofSize: 16)
 ```
-  or you can create your own `Config`
+or you can create your own `Config`
 
-```
+```swift
   let configMaker = Config(
       countryNameTextColor: .black,
       countryNameTextFont: UIFont.systemFont(ofSize: 16),
@@ -94,7 +90,6 @@ public protocol Configuration {
   )
 
   CountryManager.shared.config = configMaker()
-
 ```
 
 #### Custom UI 
@@ -102,7 +97,7 @@ public protocol Configuration {
 `getCountries()` method in `CountryManager` will return a `Country` array for you, so you can create your own custom UI implementations with this array. 
 
 ```
- let countries = CountryManager.shared.getCountries()
+  let countries = CountryManager.shared.getCountries()
 ```
 #### Flags
 
@@ -127,7 +122,8 @@ For page title and close button text you can set localized text with `Configrati
 `CountryPicker` v1.0.0 is support RTL except displaying localized phone codes.
 
 ## What's next
-- [ ] SwiftUI version. 
+- [ ] Sample Project.
+- [ ] SwiftUI representable code example. 
 - [ ] Support below iOS 13.
   
 ---
