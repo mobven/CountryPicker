@@ -101,27 +101,27 @@ public struct Config: Configuration {
     public var separatorColor: UIColor
 
     public init(
-        countryNameTextColor: UIColor = .label,
+        countryNameTextColor: UIColor = ColorCompatibility.label,
         countryNameTextFont: UIFont = UIFont.systemFont(ofSize: 16),
         selectedCountryCodeBackgroundColor: UIColor = .systemGreen,
-        selectedCountryCodeTextColor: UIColor = .systemBackground,
+        selectedCountryCodeTextColor: UIColor = ColorCompatibility.systemBackground,
         selectedCountryCodeCornerRadius: CGFloat = 8,
         countryCodeFont: UIFont = UIFont.systemFont(ofSize: 16),
-        countryCodeTextColor: UIColor = .systemGray2,
+        countryCodeTextColor: UIColor = ColorCompatibility.systemGray2,
         closeButtonTextColor: UIColor = .systemGreen,
         closeButtonFont: UIFont = UIFont.systemFont(ofSize: 16),
         closeButtonText: String = "Close",
-        titleTextColor: UIColor = .label,
+        titleTextColor: UIColor = ColorCompatibility.label,
         titleFont: UIFont = UIFont.boldSystemFont(ofSize: 18),
         titleText: String = "Select Country",
         searchBarPlaceholder: String = "Search...",
-        searchBarBackgroundColor: UIColor = .systemGray5,
-        searchBarPlaceholderColor: UIColor = .systemGray2,
+        searchBarBackgroundColor: UIColor = ColorCompatibility.systemGray5,
+        searchBarPlaceholderColor: UIColor = ColorCompatibility.systemGray2,
         searchBarFont: UIFont = UIFont.systemFont(ofSize: 16),
         searchBarLeftImage: UIImage? = nil,
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
-        separatorColor: UIColor = .systemGray5
+        separatorColor: UIColor = ColorCompatibility.systemGray5
     ) {
         self.countryNameTextColor = countryNameTextColor
         self.countryNameTextFont = countryNameTextFont

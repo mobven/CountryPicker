@@ -15,7 +15,7 @@ public protocol CountryPickerDelegate: AnyObject {
 public final class CountryPickerViewController: UIViewController {
     lazy var headerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = ColorCompatibility.systemBackground
         return view
     }()
 

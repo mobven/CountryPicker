@@ -6,7 +6,7 @@ Very simple country picker for iOS with elegant design. It uses unicode for coun
 <img src= "Screenshots/iPhone-12-white.png" width="335" height = "724">|<img src= "Screenshots/iPhone-12-dark-mode.png" width="335" height = "724">| <img src= "Screenshots/iPhone-12-white-arabic.png" width="335" height = "724">
 
 ## Requirements
-* iOS 13+
+* iOS 12+
 * Xcode 12+
 * Swift 5.3+
 
@@ -124,7 +124,7 @@ For page title and close button text you can set localized text with `Configrati
 ## What's next
 - [ ] Sample Project.
 - [ ] SwiftUI representable code example. 
-- [ ] Support below iOS 13.
+- [x] Support below iOS 13.
   
 ---
 Developed with 🖤 at [Mobven](https://mobven.com/)
