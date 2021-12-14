@@ -24,7 +24,8 @@ dependencies: [
 
 ## Usage
 
-Simply, you can use with presenting `CountryPickerViewController` instance in your `UIViewController` . You can alse set default country for the picker with selectedCountry variable (Default value is "TR"). For use delegate method you should conform to `CountryPickerDelegate` in your `UIViewController`.
+### UIKit
+Simply, you present `CountryPickerViewController`. You can set default country for the picker with `selectedCountry` variable (Default value is "TR"). To get informed about country selection, you should conform to `CountryPickerDelegate` in your `UIViewController`.
 
 ```swift
 let countryPicker = CountryPickerViewController()
@@ -32,6 +33,10 @@ countryPicker.selectedCountry = "TR"
 countryPicker.delegate = self
 self.present(countryPicker, animated: true)
 ```
+
+### SwiftUI
+To present `CountryPickerViewController` on SwiftUI, you need to create a `CountryPicker` representable. Check [docs/SwiftUI](docs/SwiftUI.md) out for details.
+
 
 #### CountryPickerDelegate
 
@@ -123,7 +128,7 @@ For page title and close button text you can set localized text with `Configrati
 
 ## What's next
 - [ ] Sample Project.
-- [ ] SwiftUI representable code example. 
+- [x] SwiftUI representable code example. 
 - [x] Support below iOS 13.
   
 ---
