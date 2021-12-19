@@ -19,15 +19,9 @@ public final class CountryManager {
     public var localeIdentifier: String = NSLocale.current.identifier
 
     /// - Returns: Country array
-    func getCountries() -> [Country] {
-        if let path = Bundle.module.path(forResource: "countries", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                return try JSONDecoder().decode([Country].self, from: data)
-            } catch {
-                print("error", error)
-            }
-        }
-        return []
+    public func getCountries() -> [Country] {
+        guard let path = Bundle.module.path(forResource: "countries", ofType: "json"),
+              let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else { return [] }
+        return (try? JSONDecoder().decode([Country].self, from: data)) ?? []
     }
 }
