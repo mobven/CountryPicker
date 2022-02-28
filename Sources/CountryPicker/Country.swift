@@ -8,12 +8,20 @@
 import Foundation
 
 public struct Country: Codable {
-    public let phoneCode: String
+    public var phoneCode: String
     public let isoCode: String
 
     public init(phoneCode: String, isoCode: String) {
         self.phoneCode = phoneCode
         self.isoCode = isoCode
+    }
+    
+    public init(isoCode: String) {
+        self.isoCode = isoCode
+        self.phoneCode = ""
+        if let country = CountryManager.shared.getCountries().first(where: { $0.isoCode == isoCode }) {
+            self.phoneCode = country.phoneCode
+        }
     }
 }
 

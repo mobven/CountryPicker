@@ -24,6 +24,11 @@ final class CountryPickerTests: XCTestCase {
         sut.textEditingChanged()
         XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 1)
     }
+    
+    func testDefaultPhoneCode() {
+        let country = Country(isoCode: "KZ")
+        XCTAssertEqual(country.phoneCode, "7")
+    }
 
     func makeSUT() -> CountryPickerViewController {
         CountryPickerViewController()
