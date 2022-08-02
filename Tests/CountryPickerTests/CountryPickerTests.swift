@@ -21,7 +21,7 @@ final class CountryPickerTests: XCTestCase {
         CountryManager.shared.localeIdentifier = "en_US"
         sut.selectedCountry = "US"
         sut.searchTextField.text = "Turkey"
-        sut.textEditingChanged()
+        sut.filter(for: sut.searchTextField.text)
         XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 1)
     }
     
