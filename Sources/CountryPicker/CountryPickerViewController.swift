@@ -40,7 +40,7 @@ public final class CountryPickerViewController: UIViewController {
         let textField = UITextField()
         textField.layer.cornerRadius = CountryManager.shared.config.searchBarCornerRadius
         textField.backgroundColor = CountryManager.shared.config.searchBarBackgroundColor
-        textField.addTarget(self, action: #selector(textEditingChanged), for: .editingChanged)
+        textField.delegate = self
         textField.font = CountryManager.shared.config.searchBarFont
         textField.attributedPlaceholder = NSAttributedString(
             string: CountryManager.shared.config.searchBarPlaceholder,
@@ -196,19 +196,19 @@ public final class CountryPickerViewController: UIViewController {
 
     // MARK: - TextField Methods
 
-    @objc func textEditingChanged() {
-        if searchTextField.text?.count == 0 {
+    @objc func clearText() {
+        searchTextField.text = ""
+        filter(for: searchTextField.text)
+    }
+
+    func filter(for query: String?) {
+        if query?.count == 0 {
             filteredCountries = countries
-        } else if let text = searchTextField.text {
+        } else if let text = query {
             filteredCountries = countries
                 .filter { $0.localizedName.localizedLowercase.contains(text.localizedLowercase) }
         }
         tableView.reloadData()
-    }
-
-    @objc func clearText() {
-        searchTextField.text = ""
-        textEditingChanged()
     }
 }
 
@@ -243,5 +243,16 @@ extension CountryPickerViewController: UITableViewDataSource, UITableViewDelegat
             guard let self = self else { return }
             self.delegate?.countryPicker(didSelect: self.filteredCountries[indexPath.row])
         }
+    }
+}
+
+extension CountryPickerViewController: UITextFieldDelegate {
+    public func textField(
+        _ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String
+    ) -> Bool {
+        guard let text = textField.text else { return true }
+        let finalText = NSString(string: text).replacingOccurrences(of: text, with: string, range: range)
+        filter(for: finalText)
+        return true
     }
 }

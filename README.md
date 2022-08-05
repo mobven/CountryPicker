@@ -127,7 +127,7 @@ For page title and close button text you can set localized text with `Configrati
 `CountryPicker` v1.0.0 is support RTL except displaying localized phone codes.
 
 ## What's next
-- [ ] Sample Project.
+- [x] Sample Project.
 - [x] SwiftUI representable code example. 
 - [x] Support below iOS 13.
   
