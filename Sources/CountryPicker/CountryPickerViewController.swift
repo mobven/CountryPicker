@@ -239,10 +239,8 @@ extension CountryPickerViewController: UITableViewDataSource, UITableViewDelegat
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dismiss(animated: true) { [weak self] in
-            guard let self = self else { return }
-            self.delegate?.countryPicker(didSelect: self.filteredCountries[indexPath.row])
-        }
+        self.delegate?.countryPicker(didSelect: self.filteredCountries[indexPath.row])
+        dismiss(animated: true)
     }
 }
 
