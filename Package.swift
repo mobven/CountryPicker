@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "EmoonaCountryPicker",
+    name: "CountryPicker",
     platforms: [.iOS(.v12)],
     products: [
         .library(
