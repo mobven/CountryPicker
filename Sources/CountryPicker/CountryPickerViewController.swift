@@ -248,8 +248,8 @@ extension CountryPickerViewController: UITextFieldDelegate {
     public func textField(
         _ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String
     ) -> Bool {
-        guard let text = textField.text else { return true }
-        let finalText = NSString(string: text).replacingOccurrences(of: text, with: string, range: range)
+        guard let text = textField.text, let textRange = Range(range, in: text) else { return true }
+        let finalText = text.replacingCharacters(in: textRange, with: string)
         filter(for: finalText)
         return true
     }
