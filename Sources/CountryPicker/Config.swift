@@ -33,6 +33,7 @@ public protocol Configuration {
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
+    var showPhoneCodes: Bool { get set }
 }
 
 public struct Config: Configuration {
@@ -99,6 +100,9 @@ public struct Config: Configuration {
     
     /// background color of separatorView
     public var separatorColor: UIColor
+    
+    /// show /  hide phone numbers
+    public var showPhoneCodes: Bool
 
     public init(
         countryNameTextColor: UIColor = ColorCompatibility.label,
@@ -121,7 +125,8 @@ public struct Config: Configuration {
         searchBarLeftImage: UIImage? = nil,
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
-        separatorColor: UIColor = ColorCompatibility.systemGray5
+        separatorColor: UIColor = ColorCompatibility.systemGray5,
+        showPhoneCodes: Bool = true
     ) {
         self.countryNameTextColor = countryNameTextColor
         self.countryNameTextFont = countryNameTextFont
@@ -144,5 +149,6 @@ public struct Config: Configuration {
         self.searchBarClearImage = searchBarClearImage
         self.searchBarCornerRadius = searchBarCornerRadius
         self.separatorColor = separatorColor
+        self.showPhoneCodes = showPhoneCodes
     }
 }
