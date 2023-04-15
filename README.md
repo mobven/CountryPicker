@@ -77,6 +77,7 @@ public protocol Configuration {
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
+    var showPhoneCodes: Bool { get set } // Default value true. 
 }
 ```
 ##### Example 
