@@ -57,30 +57,35 @@ public final class CountryPickerCell: UITableViewCell {
 
     func setupViews() {
         contentView.addSubview(stackView)
-        stackView.addArrangedSubviews(
-            countryNameLabel,
-            countryCodeContainerView
-        )
-        countryCodeContainerView.addSubview(countryCodeLabel)
+                
+        stackView.addArrangedSubview(countryNameLabel)
+
+        if CountryManager.shared.config.showPhoneCodes {
+            stackView.addArrangedSubview(countryCodeContainerView)
+            countryCodeContainerView.addSubview(countryCodeLabel)
+        }
     }
 
     func setupLayouts() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        countryCodeContainerView.translatesAutoresizingMaskIntoConstraints = false
-        countryNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        countryCodeLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        countryCodeLabel.setContentHuggingPriority(.required, for: .horizontal)
-        countryCodeLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-
-        countryCodeLabel.leadingAnchor.constraint(equalTo: countryCodeContainerView.leadingAnchor, constant: 6)
-            .isActive = true
-        countryCodeLabel.trailingAnchor.constraint(equalTo: countryCodeContainerView.trailingAnchor, constant: -8)
-            .isActive = true
-        countryCodeLabel.topAnchor.constraint(equalTo: countryCodeContainerView.topAnchor, constant: 3).isActive = true
-        countryCodeLabel.bottomAnchor.constraint(equalTo: countryCodeContainerView.bottomAnchor, constant: -3)
-            .isActive = true
-
+        
+        if CountryManager.shared.config.showPhoneCodes {
+            countryCodeContainerView.translatesAutoresizingMaskIntoConstraints = false
+            countryNameLabel.translatesAutoresizingMaskIntoConstraints = false
+            countryCodeLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            countryCodeLabel.setContentHuggingPriority(.required, for: .horizontal)
+            countryCodeLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+            
+            countryCodeLabel.leadingAnchor.constraint(equalTo: countryCodeContainerView.leadingAnchor, constant: 6)
+                .isActive = true
+            countryCodeLabel.trailingAnchor.constraint(equalTo: countryCodeContainerView.trailingAnchor, constant: -8)
+                .isActive = true
+            countryCodeLabel.topAnchor.constraint(equalTo: countryCodeContainerView.topAnchor, constant: 3).isActive = true
+            countryCodeLabel.bottomAnchor.constraint(equalTo: countryCodeContainerView.bottomAnchor, constant: -3)
+                .isActive = true
+        }
+        
         stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12).isActive = true
