@@ -253,4 +253,9 @@ extension CountryPickerViewController: UITextFieldDelegate {
         filter(for: finalText)
         return true
     }
+
+    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        clearText()
+        return true
+    }
 }
