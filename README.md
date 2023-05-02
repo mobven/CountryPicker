@@ -78,6 +78,7 @@ public protocol Configuration {
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
     var showPhoneCodes: Bool { get set } // Default value true. 
+    var countriesSortingComparisonResult: ComparisonResult { get set } // Default value .orderedSame
 }
 ```
 ##### Example 

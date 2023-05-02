@@ -34,6 +34,7 @@ public protocol Configuration {
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
     var showPhoneCodes: Bool { get set }
+    var countriesSortingComparisonResult: ComparisonResult { get set }
 }
 
 public struct Config: Configuration {
@@ -104,6 +105,9 @@ public struct Config: Configuration {
     /// show /  hide phone numbers
     public var showPhoneCodes: Bool
 
+    /// sort by localized country names
+    public var countriesSortingComparisonResult: ComparisonResult
+
     public init(
         countryNameTextColor: UIColor = ColorCompatibility.label,
         countryNameTextFont: UIFont = UIFont.systemFont(ofSize: 16),
@@ -126,7 +130,8 @@ public struct Config: Configuration {
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
-        showPhoneCodes: Bool = true
+        showPhoneCodes: Bool = true,
+        countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
         self.countryNameTextColor = countryNameTextColor
         self.countryNameTextFont = countryNameTextFont
@@ -150,5 +155,6 @@ public struct Config: Configuration {
         self.searchBarCornerRadius = searchBarCornerRadius
         self.separatorColor = separatorColor
         self.showPhoneCodes = showPhoneCodes
+        self.countriesSortingComparisonResult = countriesSortingComparisonResult
     }
 }

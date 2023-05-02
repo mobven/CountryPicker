@@ -136,8 +136,8 @@ public final class CountryPickerViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         countries = CountryManager.shared.getCountries().sorted {
-                $0.localizedName.localizedCaseInsensitiveCompare($1.localizedName) == .orderedAscending
-            }
+            $0.localizedName.localizedCaseInsensitiveCompare($1.localizedName) == CountryManager.shared.config.countriesSortingComparisonResult
+        }
         filteredCountries = countries
         tableView.reloadData()
     }
