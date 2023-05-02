@@ -15,12 +15,12 @@ public struct Country: Codable {
         self.phoneCode = phoneCode
         self.isoCode = isoCode
     }
-    
+
     public init(isoCode: String) {
         self.isoCode = isoCode
-        self.phoneCode = ""
+        phoneCode = ""
         if let country = CountryManager.shared.getCountries().first(where: { $0.isoCode == isoCode }) {
-            self.phoneCode = country.phoneCode
+            phoneCode = country.phoneCode
         }
     }
 }

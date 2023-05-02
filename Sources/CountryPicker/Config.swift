@@ -34,43 +34,43 @@ public protocol Configuration {
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
     var showPhoneCodes: Bool { get set }
+    var countriesSortingComparisonResult: ComparisonResult { get set }
 }
 
 public struct Config: Configuration {
-    
     /// textColor of countryNameLabel
     public var countryNameTextColor: UIColor
-    
+
     /// font of countryNameLabel
     public var countryNameTextFont: UIFont
-    
+
     /// background color of countryCodeLabel's selected state
     public var selectedCountryCodeBackgroundColor: UIColor
-    
+
     /// textColor of countryCodeLabel's selected state
     public var selectedCountryCodeTextColor: UIColor
-    
+
     /// corner radius of countryCodeLabel's selected state
     public var selectedCountryCodeCornerRadius: CGFloat
-    
+
     /// font of countryCodeLabel
     public var countryCodeFont: UIFont
-    
+
     /// textColor of countryCodeLabel
     public var countryCodeTextColor: UIColor
-    
+
     /// textColor of closeButton
     public var closeButtonTextColor: UIColor
-    
+
     /// font of closeButton
     public var closeButtonFont: UIFont
-    
+
     // text of closeButton
     public var closeButtonText: String
-    
+
     /// textColor of titleLabel
     public var titleTextColor: UIColor
-    
+
     /// font of titleLabel
     public var titleFont: UIFont
 
@@ -79,30 +79,33 @@ public struct Config: Configuration {
 
     /// placeholder text of searchTextField
     public var searchBarPlaceholder: String
-    
+
     /// background color  of searchTextField
     public var searchBarBackgroundColor: UIColor
-    
+
     /// placeholder text color of searchTextField
     public var searchBarPlaceholderColor: UIColor
-    
+
     /// font of searchTextField
     public var searchBarFont: UIFont
-    
+
     /// left image of searchTextField
     public var searchBarLeftImage: UIImage?
-    
+
     /// clear image of searchTextField
     public var searchBarClearImage: UIImage?
-    
+
     /// corner radius of searchTextField
     public var searchBarCornerRadius: CGFloat
-    
+
     /// background color of separatorView
     public var separatorColor: UIColor
-    
+
     /// show /  hide phone numbers
     public var showPhoneCodes: Bool
+
+    /// sort by localized country names
+    public var countriesSortingComparisonResult: ComparisonResult
 
     public init(
         countryNameTextColor: UIColor = ColorCompatibility.label,
@@ -126,7 +129,8 @@ public struct Config: Configuration {
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
-        showPhoneCodes: Bool = true
+        showPhoneCodes: Bool = true,
+        countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
         self.countryNameTextColor = countryNameTextColor
         self.countryNameTextFont = countryNameTextFont
@@ -150,5 +154,6 @@ public struct Config: Configuration {
         self.searchBarCornerRadius = searchBarCornerRadius
         self.separatorColor = separatorColor
         self.showPhoneCodes = showPhoneCodes
+        self.countriesSortingComparisonResult = countriesSortingComparisonResult
     }
 }

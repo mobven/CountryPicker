@@ -5,11 +5,10 @@
 //  Created by Rashid Ramazanov on 8/2/22.
 //
 
-import UIKit
 import CountryPicker
+import UIKit
 
 class ViewController: UIViewController {
-
     @IBAction func pick() {
         startPicker()
     }
@@ -18,9 +17,8 @@ class ViewController: UIViewController {
         let countryPicker = CountryPickerViewController()
         countryPicker.selectedCountry = "TR"
         countryPicker.delegate = self
-        self.present(countryPicker, animated: true)
+        present(countryPicker, animated: true)
     }
-
 }
 
 extension ViewController: CountryPickerDelegate {

@@ -1,5 +1,5 @@
-import XCTest
 @testable import CountryPicker
+import XCTest
 
 final class CountryPickerTests: XCTestCase {
     func test_countriesCount() {
@@ -24,7 +24,7 @@ final class CountryPickerTests: XCTestCase {
         sut.filter(for: sut.searchTextField.text)
         XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 1)
     }
-    
+
     func testDefaultPhoneCode() {
         let country = Country(isoCode: "KZ")
         XCTAssertEqual(country.phoneCode, "7")
