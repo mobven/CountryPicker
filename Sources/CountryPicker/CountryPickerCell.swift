@@ -46,7 +46,7 @@ public final class CountryPickerCell: UITableViewCell {
         setup()
     }
 
-    @available(*, unavailable) required init?(coder: NSCoder) {
+    @available(*, unavailable) required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -57,7 +57,7 @@ public final class CountryPickerCell: UITableViewCell {
 
     func setupViews() {
         contentView.addSubview(stackView)
-                
+
         stackView.addArrangedSubview(countryNameLabel)
 
         if CountryManager.shared.config.showPhoneCodes {
@@ -68,15 +68,15 @@ public final class CountryPickerCell: UITableViewCell {
 
     func setupLayouts() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         if CountryManager.shared.config.showPhoneCodes {
             countryCodeContainerView.translatesAutoresizingMaskIntoConstraints = false
             countryNameLabel.translatesAutoresizingMaskIntoConstraints = false
             countryCodeLabel.translatesAutoresizingMaskIntoConstraints = false
-            
+
             countryCodeLabel.setContentHuggingPriority(.required, for: .horizontal)
             countryCodeLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-            
+
             countryCodeLabel.leadingAnchor.constraint(equalTo: countryCodeContainerView.leadingAnchor, constant: 6)
                 .isActive = true
             countryCodeLabel.trailingAnchor.constraint(equalTo: countryCodeContainerView.trailingAnchor, constant: -8)
@@ -85,7 +85,7 @@ public final class CountryPickerCell: UITableViewCell {
             countryCodeLabel.bottomAnchor.constraint(equalTo: countryCodeContainerView.bottomAnchor, constant: -3)
                 .isActive = true
         }
-        
+
         stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12).isActive = true

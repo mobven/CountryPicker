@@ -46,7 +46,7 @@ public final class CountryPickerViewController: UIViewController {
             string: CountryManager.shared.config.searchBarPlaceholder,
             attributes: [
                 NSAttributedString.Key.foregroundColor:
-                    CountryManager.shared.config.searchBarPlaceholderColor
+                    CountryManager.shared.config.searchBarPlaceholderColor,
             ]
         )
         setSearchIcon(textField)
@@ -217,7 +217,7 @@ public final class CountryPickerViewController: UIViewController {
 // MARK: - UITableViewDataSource & UITableViewDelegate
 
 extension CountryPickerViewController: UITableViewDataSource, UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         filteredCountries.count
     }
 
@@ -232,16 +232,16 @@ extension CountryPickerViewController: UITableViewDataSource, UITableViewDelegat
         return cell
     }
 
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
 
-    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_: UITableView, estimatedHeightForRowAt _: IndexPath) -> CGFloat {
         estimatedCellHeight
     }
 
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate?.countryPicker(didSelect: self.filteredCountries[indexPath.row])
+    public func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.countryPicker(didSelect: filteredCountries[indexPath.row])
         dismiss(animated: true)
     }
 }
@@ -256,7 +256,7 @@ extension CountryPickerViewController: UITextFieldDelegate {
         return true
     }
 
-    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
+    public func textFieldShouldClear(_: UITextField) -> Bool {
         clearText()
         return true
     }
