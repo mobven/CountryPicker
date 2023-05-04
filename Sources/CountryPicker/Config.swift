@@ -35,6 +35,7 @@ public protocol Configuration {
     var separatorColor: UIColor { get set }
     var showPhoneCodes: Bool { get set }
     var countriesSortingComparisonResult: ComparisonResult { get set }
+    var showCloseButtonAsXImage: Bool { get set }
 }
 
 public struct Config: Configuration {
@@ -107,6 +108,9 @@ public struct Config: Configuration {
     /// sort by localized country names
     public var countriesSortingComparisonResult: ComparisonResult
 
+    /// display the close button as an 'X' image or as text.
+    public var showCloseButtonAsXImage: Bool
+
     public init(
         countryNameTextColor: UIColor = ColorCompatibility.label,
         countryNameTextFont: UIFont = UIFont.systemFont(ofSize: 16),
@@ -130,7 +134,8 @@ public struct Config: Configuration {
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
         showPhoneCodes: Bool = true,
-        countriesSortingComparisonResult: ComparisonResult = .orderedSame
+        countriesSortingComparisonResult: ComparisonResult = .orderedSame,
+        showCloseButtonAsXImage: Bool = false
     ) {
         self.countryNameTextColor = countryNameTextColor
         self.countryNameTextFont = countryNameTextFont
@@ -155,5 +160,6 @@ public struct Config: Configuration {
         self.separatorColor = separatorColor
         self.showPhoneCodes = showPhoneCodes
         self.countriesSortingComparisonResult = countriesSortingComparisonResult
+        self.showCloseButtonAsXImage = showCloseButtonAsXImage
     }
 }
