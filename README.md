@@ -79,6 +79,7 @@ public protocol Configuration {
     var separatorColor: UIColor { get set }
     var showPhoneCodes: Bool { get set } // Default value true. 
     var countriesSortingComparisonResult: ComparisonResult { get set } // Default value .orderedSame
+        var showCloseButtonAsXImage: Bool { get set } // Default value false
 }
 ```
 ##### Example 
