@@ -63,9 +63,6 @@ public protocol Configuration {
     var selectedCountryCodeCornerRadius: CGFloat { get set }
     var countryCodeFont: UIFont { get set }
     var countryCodeTextColor: UIColor { get set }
-    var closeButtonTextColor: UIColor { get set }
-    var closeButtonFont: UIFont { get set }
-    var closeButtonText: String { get set }
     var titleTextColor: UIColor { get set }
     var titleFont: UIFont { get set }
     var titleText: String { get set }
@@ -77,8 +74,12 @@ public protocol Configuration {
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
-    var showPhoneCodes: Bool { get set } // Default value true. 
-    var countriesSortingComparisonResult: ComparisonResult { get set } // Default value .orderedSame
+    // Default value true.
+    var showPhoneCodes: Bool { get set } 
+    // Default value .orderedSame
+    var countriesSortingComparisonResult: ComparisonResult { get set }
+    // Default value .title(title: "Close", textColor: .systemGreen, font: .systemFont(ofSize: 16))
+    var closeButtonStyle: DismissButtonStyle { get set }
 }
 ```
 ##### Example 
@@ -124,7 +125,7 @@ or you can create your own `Config`
 For page title and close button text you can set localized text with `Configration` properties
 ```swift
   CountryManager.shared.config.titleText = "Country Picker"
-  CountryManager.shared.config.closeButtonText = "Close"
+  CountryManager.shared.config.closeButtonStyle = .title(title: "Close", textColor: .red, font: .systemFont(ofSize: 16))
 ```
 `CountryPicker` v1.0.0 is support RTL except displaying localized phone codes.
 
