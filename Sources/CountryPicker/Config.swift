@@ -141,30 +141,31 @@ public struct Config: Configuration {
         showPhoneCodes: Bool = true,
         countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
-        self.countryNameTextColor = countryNameTextColor
-        self.countryNameTextFont = countryNameTextFont
-        self.selectedCountryCodeBackgroundColor = selectedCountryCodeBackgroundColor
-        self.selectedCountryCodeTextColor = selectedCountryCodeTextColor
-        self.countryCodeFont = countryCodeFont
-        self.countryCodeTextColor = countryCodeTextColor
-        self.selectedCountryCodeCornerRadius = selectedCountryCodeCornerRadius
-        self.closeButtonTextColor = closeButtonTextColor
-        self.closeButtonFont = closeButtonFont
-        self.closeButtonText = closeButtonText
-        self.closeButtonStyle = .title(title: closeButtonText, textColor: closeButtonTextColor, font: closeButtonFont)
-        self.titleTextColor = titleTextColor
-        self.titleFont = titleFont
-        self.titleText = titleText
-        self.searchBarPlaceholder = searchBarPlaceholder
-        self.searchBarBackgroundColor = searchBarBackgroundColor
-        self.searchBarPlaceholderColor = searchBarPlaceholderColor
-        self.searchBarFont = searchBarFont
-        self.searchBarLeftImage = searchBarLeftImage
-        self.searchBarClearImage = searchBarClearImage
-        self.searchBarCornerRadius = searchBarCornerRadius
-        self.separatorColor = separatorColor
-        self.showPhoneCodes = showPhoneCodes
-        self.countriesSortingComparisonResult = countriesSortingComparisonResult
+        self.init(
+            countryNameTextColor: countryNameTextColor,
+            countryNameTextFont: countryNameTextFont,
+            selectedCountryCodeBackgroundColor: selectedCountryCodeBackgroundColor,
+            selectedCountryCodeTextColor: selectedCountryCodeTextColor,
+            selectedCountryCodeCornerRadius: selectedCountryCodeCornerRadius,
+            countryCodeFont: countryCodeFont,
+            countryCodeTextColor: countryCodeTextColor,
+            closeButtonStyle: .title(
+                title: closeButtonText, textColor: closeButtonTextColor, font: closeButtonFont
+            ),
+            titleTextColor: titleTextColor,
+            titleFont: titleFont,
+            titleText: titleText,
+            searchBarPlaceholder: searchBarPlaceholder,
+            searchBarBackgroundColor: searchBarBackgroundColor,
+            searchBarPlaceholderColor: searchBarPlaceholderColor,
+            searchBarFont: searchBarFont,
+            searchBarLeftImage: searchBarLeftImage,
+            searchBarClearImage: searchBarClearImage,
+            searchBarCornerRadius: searchBarCornerRadius,
+            separatorColor: separatorColor,
+            showPhoneCodes: showPhoneCodes,
+            countriesSortingComparisonResult: countriesSortingComparisonResult
+        )
     }
 
     public init(
