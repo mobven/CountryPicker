@@ -74,9 +74,12 @@ public protocol Configuration {
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
-    var showPhoneCodes: Bool { get set } // Default value true. 
-    var countriesSortingComparisonResult: ComparisonResult { get set } // Default value .orderedSame
-    var closeButtonStyle: DismissButtonStyle { get set } // Default value .title(title: "Close")
+    // Default value true.
+    var showPhoneCodes: Bool { get set } 
+    // Default value .orderedSame
+    var countriesSortingComparisonResult: ComparisonResult { get set }
+    // Default value .title(title: "Close", textColor: .systemGreen, font: .systemFont(ofSize: 16))
+    var closeButtonStyle: DismissButtonStyle { get set }
 }
 ```
 ##### Example 
