@@ -21,7 +21,7 @@ public protocol Configuration {
     var countryCodeTextColor: UIColor { get set }
     var closeButtonTextColor: UIColor { get set }
     var closeButtonFont: UIFont { get set }
-    var closeButtonText: String { get set }
+    var closeButtonStyle: DismissButtonStyle { get set }
     var titleTextColor: UIColor { get set }
     var titleFont: UIFont { get set }
     var titleText: String { get set }
@@ -35,7 +35,6 @@ public protocol Configuration {
     var separatorColor: UIColor { get set }
     var showPhoneCodes: Bool { get set }
     var countriesSortingComparisonResult: ComparisonResult { get set }
-    var showCloseButtonAsXImage: Bool { get set }
 }
 
 public struct Config: Configuration {
@@ -66,8 +65,8 @@ public struct Config: Configuration {
     /// font of closeButton
     public var closeButtonFont: UIFont
 
-    // text of closeButton
-    public var closeButtonText: String
+    /// The style of the close button, which can be either an icon or a text title.
+    public var closeButtonStyle: DismissButtonStyle
 
     /// textColor of titleLabel
     public var titleTextColor: UIColor
@@ -108,9 +107,6 @@ public struct Config: Configuration {
     /// sort by localized country names
     public var countriesSortingComparisonResult: ComparisonResult
 
-    /// display the close button as an 'X' image or as text.
-    public var showCloseButtonAsXImage: Bool
-
     public init(
         countryNameTextColor: UIColor = ColorCompatibility.label,
         countryNameTextFont: UIFont = UIFont.systemFont(ofSize: 16),
@@ -121,7 +117,7 @@ public struct Config: Configuration {
         countryCodeTextColor: UIColor = ColorCompatibility.systemGray2,
         closeButtonTextColor: UIColor = .systemGreen,
         closeButtonFont: UIFont = UIFont.systemFont(ofSize: 16),
-        closeButtonText: String = "Close",
+        closeButtonStyle: DismissButtonStyle = .title(title: "Close"),
         titleTextColor: UIColor = ColorCompatibility.label,
         titleFont: UIFont = UIFont.boldSystemFont(ofSize: 18),
         titleText: String = "Select Country",
@@ -134,8 +130,7 @@ public struct Config: Configuration {
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
         showPhoneCodes: Bool = true,
-        countriesSortingComparisonResult: ComparisonResult = .orderedSame,
-        showCloseButtonAsXImage: Bool = false
+        countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
         self.countryNameTextColor = countryNameTextColor
         self.countryNameTextFont = countryNameTextFont
@@ -146,7 +141,7 @@ public struct Config: Configuration {
         self.selectedCountryCodeCornerRadius = selectedCountryCodeCornerRadius
         self.closeButtonTextColor = closeButtonTextColor
         self.closeButtonFont = closeButtonFont
-        self.closeButtonText = closeButtonText
+        self.closeButtonStyle = closeButtonStyle
         self.titleTextColor = titleTextColor
         self.titleFont = titleFont
         self.titleText = titleText
@@ -160,6 +155,10 @@ public struct Config: Configuration {
         self.separatorColor = separatorColor
         self.showPhoneCodes = showPhoneCodes
         self.countriesSortingComparisonResult = countriesSortingComparisonResult
-        self.showCloseButtonAsXImage = showCloseButtonAsXImage
     }
+}
+
+public enum DismissButtonStyle {
+    case icon(image: UIImage?)
+    case title(title: String)
 }
