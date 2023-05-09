@@ -30,13 +30,13 @@ public final class CountryPickerViewController: UIViewController {
     lazy var closeButton: UIButton = {
         let button = UIButton()
         switch CountryManager.shared.config.closeButtonStyle {
-        case .icon(let image):
-            let finalImage = image ?? UIImage(named: "close", in: .module, compatibleWith: nil)
+        case let .icon(image):
+            let finalImage = image
             button.setImage(finalImage, for: .normal)
-        case .title(let title):
+        case let .title(title, color, font):
             button.setTitle(title, for: .normal)
-            button.setTitleColor(CountryManager.shared.config.closeButtonTextColor, for: .normal)
-            button.titleLabel?.font = CountryManager.shared.config.closeButtonFont
+            button.setTitleColor(color, for: .normal)
+            button.titleLabel?.font = font
         }
         button.addTarget(self, action: #selector(close), for: .touchUpInside)
         return button
