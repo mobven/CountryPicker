@@ -19,6 +19,8 @@ public protocol Configuration {
     var selectedCountryCodeCornerRadius: CGFloat { get set }
     var countryCodeFont: UIFont { get set }
     var countryCodeTextColor: UIColor { get set }
+    var countryImageHeigth: CGFloat { get set }
+    var countryImageSpacing: CGFloat { get set }
     var closeButtonTextColor: UIColor { get set }
     var closeButtonFont: UIFont { get set }
     @available(*, deprecated, message: "Use `closeButtonStyle` instead")
@@ -64,6 +66,12 @@ public struct Config: Configuration {
 
     /// textColor of countryCodeLabel
     public var countryCodeTextColor: UIColor
+
+    /// imageHeight of countryImage
+    public var countryImageHeigth: CGFloat
+
+    /// spacing of countryImage
+    public var countryImageSpacing: CGFloat
 
     /// textColor of closeButton
     @available(*, deprecated, message: "Use `closeButtonStyle` instead")
@@ -140,6 +148,8 @@ public struct Config: Configuration {
         selectedCountryCodeCornerRadius: CGFloat = 8,
         countryCodeFont: UIFont = UIFont.systemFont(ofSize: 16),
         countryCodeTextColor: UIColor = ColorCompatibility.systemGray2,
+        countryImageHeigth: CGFloat = 20.0,
+        countryImageSpacing: CGFloat = 3.0,
         closeButtonTextColor: UIColor = .systemGreen,
         closeButtonFont: UIFont = UIFont.systemFont(ofSize: 16),
         closeButtonText: String = "Close",
@@ -169,6 +179,8 @@ public struct Config: Configuration {
             selectedCountryCodeCornerRadius: selectedCountryCodeCornerRadius,
             countryCodeFont: countryCodeFont,
             countryCodeTextColor: countryCodeTextColor,
+            countryImageHeigth: countryImageHeigth,
+            countryImageSpacing: countryImageSpacing,
             closeButtonStyle: .title(
                 title: closeButtonText, textColor: closeButtonTextColor, font: closeButtonFont
             ),
@@ -200,6 +212,8 @@ public struct Config: Configuration {
         selectedCountryCodeCornerRadius: CGFloat = 8,
         countryCodeFont: UIFont = UIFont.systemFont(ofSize: 16),
         countryCodeTextColor: UIColor = ColorCompatibility.systemGray2,
+        countryImageHeigth: CGFloat = 30.0,
+        countryImageSpacing: CGFloat = 3.0,
         closeButtonStyle: DismissButtonStyle = .title(
             title: "Close", textColor: .systemGreen, font: .systemFont(ofSize: 16)
         ),
@@ -227,6 +241,8 @@ public struct Config: Configuration {
         self.selectedCountryCodeTextColor = selectedCountryCodeTextColor
         self.countryCodeFont = countryCodeFont
         self.countryCodeTextColor = countryCodeTextColor
+        self.countryImageHeigth = countryImageHeigth
+        self.countryImageSpacing = countryImageSpacing
         self.selectedCountryCodeCornerRadius = selectedCountryCodeCornerRadius
         self.closeButtonTextColor = .systemGreen
         self.closeButtonFont = UIFont.systemFont(ofSize: 16)
