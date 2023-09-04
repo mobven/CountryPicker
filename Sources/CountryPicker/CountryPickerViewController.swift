@@ -74,6 +74,7 @@ public final class CountryPickerViewController: UIViewController {
     lazy var separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = CountryManager.shared.config.separatorColor
+        view.isHidden = !CountryManager.shared.config.showTopSeperator
         return view
     }()
 
@@ -203,11 +204,20 @@ public final class CountryPickerViewController: UIViewController {
         closeButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
 
         searchTextField.translatesAutoresizingMaskIntoConstraints = false
-        searchTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        searchTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 23).isActive = true
-        searchTextField.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20).isActive = true
-        searchTextField.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -21).isActive = true
-        searchTextField.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
+        searchTextField.heightAnchor.constraint(
+            equalToConstant: CountryManager.shared.config.searchBarHeight).isActive = true
+        searchTextField.topAnchor.constraint(
+            equalTo: titleLabel.bottomAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.top).isActive = true
+        searchTextField.leadingAnchor.constraint(
+            equalTo: headerView.leadingAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.left).isActive = true
+        searchTextField.bottomAnchor.constraint(
+            equalTo: headerView.bottomAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.bottom).isActive = true
+        searchTextField.trailingAnchor.constraint(
+            equalTo: headerView.trailingAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.right).isActive = true
 
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true

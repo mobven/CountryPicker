@@ -31,12 +31,15 @@ public protocol Configuration {
     var searchBarBackgroundColor: UIColor { get set }
     var searchBarPlaceholderColor: UIColor { get set }
     var searchBarFont: UIFont { get set }
+    var searchBarHeight: CGFloat { get set }
+    var searchBarInsets: UIEdgeInsets { get set }
     var searchBarLeftImage: UIImage? { get set }
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
     var showPhoneCodes: Bool { get set }
     var showNotch: Bool {get set }
+    var showTopSeperator: Bool {get set }
     var countriesSortingComparisonResult: ComparisonResult { get set }
 }
 
@@ -98,6 +101,12 @@ public struct Config: Configuration {
     /// font of searchTextField
     public var searchBarFont: UIFont
 
+    /// height of searchTextField
+    public var searchBarHeight: CGFloat
+
+    /// insets of searchTextField
+    public var searchBarInsets: UIEdgeInsets
+
     /// left image of searchTextField
     public var searchBarLeftImage: UIImage?
 
@@ -115,6 +124,9 @@ public struct Config: Configuration {
 
     /// show /  hide notch
     public var showNotch: Bool
+
+    /// show / hide topSeperator
+    public var showTopSeperator: Bool
 
     /// sort by localized country names
     public var countriesSortingComparisonResult: ComparisonResult
@@ -138,12 +150,15 @@ public struct Config: Configuration {
         searchBarBackgroundColor: UIColor = ColorCompatibility.systemGray5,
         searchBarPlaceholderColor: UIColor = ColorCompatibility.systemGray2,
         searchBarFont: UIFont = UIFont.systemFont(ofSize: 16),
+        searchBarHeight: CGFloat = 40.0,
+        searchBarInsets: UIEdgeInsets = UIEdgeInsets(top: 23.0, left: 20.0, bottom: -21.0, right: -20.0),
         searchBarLeftImage: UIImage? = nil,
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
         showPhoneCodes: Bool = true,
         showNotch: Bool = false,
+        showTopSeperator: Bool = true,
         countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
         self.init(
@@ -164,12 +179,15 @@ public struct Config: Configuration {
             searchBarBackgroundColor: searchBarBackgroundColor,
             searchBarPlaceholderColor: searchBarPlaceholderColor,
             searchBarFont: searchBarFont,
+            searchBarHeight: searchBarHeight,
+            searchBarInsets: searchBarInsets,
             searchBarLeftImage: searchBarLeftImage,
             searchBarClearImage: searchBarClearImage,
             searchBarCornerRadius: searchBarCornerRadius,
             separatorColor: separatorColor,
             showPhoneCodes: showPhoneCodes,
             showNotch: showNotch,
+            showTopSeperator: showTopSeperator,
             countriesSortingComparisonResult: countriesSortingComparisonResult
         )
     }
@@ -192,12 +210,15 @@ public struct Config: Configuration {
         searchBarBackgroundColor: UIColor = ColorCompatibility.systemGray5,
         searchBarPlaceholderColor: UIColor = ColorCompatibility.systemGray2,
         searchBarFont: UIFont = UIFont.systemFont(ofSize: 16),
+        searchBarHeight: CGFloat = 40.0,
+        searchBarInsets: UIEdgeInsets = UIEdgeInsets(top: 23.0, left: 20.0, bottom: -21.0, right: -20.0),
         searchBarLeftImage: UIImage? = nil,
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
         showPhoneCodes: Bool = true,
         showNotch: Bool = false,
+        showTopSeperator: Bool = true,
         countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
         self.countryNameTextColor = countryNameTextColor
@@ -213,6 +234,8 @@ public struct Config: Configuration {
         self.closeButtonStyle = closeButtonStyle
         self.titleTextColor = titleTextColor
         self.titleFont = titleFont
+        self.searchBarHeight = searchBarHeight
+        self.searchBarInsets = searchBarInsets
         self.titleText = titleText
         self.searchBarPlaceholder = searchBarPlaceholder
         self.searchBarBackgroundColor = searchBarBackgroundColor
@@ -224,6 +247,7 @@ public struct Config: Configuration {
         self.separatorColor = separatorColor
         self.showPhoneCodes = showPhoneCodes
         self.showNotch = showNotch
+        self.showTopSeperator = showTopSeperator
         self.countriesSortingComparisonResult = countriesSortingComparisonResult
     }
 }
