@@ -123,7 +123,7 @@ public final class CountryPickerViewController: UIViewController {
     // MARK: - Constants
 
     private let iconPadding: CGFloat = 12
-    private let iconHeight: CGFloat = 16
+    private var iconHeight: CGFloat = CountryManager.shared.config.searchIconHeight
     private let estimatedCellHeight: CGFloat = 52
 
     private var countries: [Country] = []

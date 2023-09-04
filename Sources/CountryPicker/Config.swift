@@ -37,6 +37,7 @@ public protocol Configuration {
     var searchBarHeight: CGFloat { get set }
     var searchBarInsets: UIEdgeInsets { get set }
     var searchBarLeftImage: UIImage? { get set }
+    var searchIconHeight: CGFloat { get set }
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
@@ -123,6 +124,9 @@ public struct Config: Configuration {
     /// left image of searchTextField
     public var searchBarLeftImage: UIImage?
 
+    /// image height of searchTextField
+    public var searchIconHeight: CGFloat
+
     /// clear image of searchTextField
     public var searchBarClearImage: UIImage?
 
@@ -172,6 +176,7 @@ public struct Config: Configuration {
         searchBarHeight: CGFloat = 40.0,
         searchBarInsets: UIEdgeInsets = UIEdgeInsets(top: 23.0, left: 20.0, bottom: -21.0, right: -20.0),
         searchBarLeftImage: UIImage? = nil,
+        searchIconHeight: CGFloat = 16.0,
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
@@ -205,6 +210,7 @@ public struct Config: Configuration {
             searchBarHeight: searchBarHeight,
             searchBarInsets: searchBarInsets,
             searchBarLeftImage: searchBarLeftImage,
+            searchIconHeight: searchIconHeight,
             searchBarClearImage: searchBarClearImage,
             searchBarCornerRadius: searchBarCornerRadius,
             separatorColor: separatorColor,
@@ -240,6 +246,7 @@ public struct Config: Configuration {
         searchBarHeight: CGFloat = 40.0,
         searchBarInsets: UIEdgeInsets = UIEdgeInsets(top: 23.0, left: 20.0, bottom: -21.0, right: -20.0),
         searchBarLeftImage: UIImage? = nil,
+        searchIconHeight: CGFloat = 16.0,
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
@@ -273,6 +280,7 @@ public struct Config: Configuration {
         self.searchBarPlaceholderColor = searchBarPlaceholderColor
         self.searchBarFont = searchBarFont
         self.searchBarLeftImage = searchBarLeftImage
+        self.searchIconHeight = searchIconHeight
         self.searchBarClearImage = searchBarClearImage
         self.searchBarCornerRadius = searchBarCornerRadius
         self.separatorColor = separatorColor
