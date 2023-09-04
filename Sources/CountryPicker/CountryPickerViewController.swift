@@ -33,7 +33,7 @@ public final class CountryPickerViewController: UIViewController {
             view.frame = CGRect(x: 0, y: 0, width: 40.0, height: 4.0)
             view.layer.cornerRadius = 2.0
             view.layer.masksToBounds = true
-            view.backgroundColor = UIColor(named: "notchColor")
+            view.backgroundColor = CountryManager.shared.config.notchColor
         }
         return view
     }()

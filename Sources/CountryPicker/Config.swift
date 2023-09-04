@@ -43,6 +43,7 @@ public protocol Configuration {
     var separatorColor: UIColor { get set }
     var showPhoneCodes: Bool { get set }
     var showNotch: Bool { get set }
+    var notchColor: UIColor { get set }
     var showTopSeperator: Bool { get set }
     var seperatorInsets: UIEdgeInsets { get set }
     var countriesSortingComparisonResult: ComparisonResult { get set }
@@ -142,6 +143,9 @@ public struct Config: Configuration {
     /// show /  hide notch
     public var showNotch: Bool
 
+    /// color of notch
+    public var notchColor: UIColor
+
     /// show / hide topSeperator
     public var showTopSeperator: Bool
 
@@ -182,6 +186,7 @@ public struct Config: Configuration {
         separatorColor: UIColor = ColorCompatibility.systemGray5,
         showPhoneCodes: Bool = true,
         showNotch: Bool = false,
+        notchColor: UIColor = ColorCompatibility.systemGray2,
         showTopSeperator: Bool = true,
         seperatorInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0),
         countriesSortingComparisonResult: ComparisonResult = .orderedSame
@@ -216,6 +221,7 @@ public struct Config: Configuration {
             separatorColor: separatorColor,
             showPhoneCodes: showPhoneCodes,
             showNotch: showNotch,
+            notchColor: notchColor,
             showTopSeperator: showTopSeperator,
             seperatorInsets: seperatorInsets,
             countriesSortingComparisonResult: countriesSortingComparisonResult
@@ -252,6 +258,7 @@ public struct Config: Configuration {
         separatorColor: UIColor = ColorCompatibility.systemGray5,
         showPhoneCodes: Bool = true,
         showNotch: Bool = false,
+        notchColor: UIColor = ColorCompatibility.systemGray2,
         showTopSeperator: Bool = true,
         seperatorInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0),
         countriesSortingComparisonResult: ComparisonResult = .orderedSame
@@ -286,6 +293,7 @@ public struct Config: Configuration {
         self.separatorColor = separatorColor
         self.showPhoneCodes = showPhoneCodes
         self.showNotch = showNotch
+        self.notchColor = notchColor
         self.showTopSeperator = showTopSeperator
         self.seperatorInsets = seperatorInsets
         self.countriesSortingComparisonResult = countriesSortingComparisonResult
