@@ -27,6 +27,17 @@ public final class CountryPickerViewController: UIViewController {
         return label
     }()
 
+    lazy var notchView: UIView = {
+        let view = UIView()
+        if CountryManager.shared.config.showNotch {
+            view.frame = CGRect(x: 0, y: 0, width: 40.0, height: 4.0)
+            view.layer.cornerRadius = 2.0
+            view.layer.masksToBounds = true
+            view.backgroundColor = UIColor(named: "notchColor")
+        }
+        return view
+    }()
+
     lazy var closeButton: UIButton = {
         let button = UIButton()
         switch CountryManager.shared.config.closeButtonStyle {
@@ -155,6 +166,7 @@ public final class CountryPickerViewController: UIViewController {
 
     func setupViews() {
         headerView.addSubviews(
+            notchView,
             titleLabel,
             closeButton,
             searchTextField,
@@ -174,10 +186,16 @@ public final class CountryPickerViewController: UIViewController {
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        headerView.heightAnchor.constraint(equalToConstant: 132).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 142).isActive = true
+
+        notchView.translatesAutoresizingMaskIntoConstraints = false
+        notchView.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        notchView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        notchView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 6).isActive = true
+        notchView.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 21).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 32).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
 
         closeButton.translatesAutoresizingMaskIntoConstraints = false

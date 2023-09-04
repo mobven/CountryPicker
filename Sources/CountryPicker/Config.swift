@@ -36,6 +36,7 @@ public protocol Configuration {
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
     var showPhoneCodes: Bool { get set }
+    var showNotch: Bool {get set }
     var countriesSortingComparisonResult: ComparisonResult { get set }
 }
 
@@ -112,6 +113,9 @@ public struct Config: Configuration {
     /// show /  hide phone numbers
     public var showPhoneCodes: Bool
 
+    /// show /  hide notch
+    public var showNotch: Bool
+
     /// sort by localized country names
     public var countriesSortingComparisonResult: ComparisonResult
 
@@ -139,6 +143,7 @@ public struct Config: Configuration {
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
         showPhoneCodes: Bool = true,
+        showNotch: Bool = false,
         countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
         self.init(
@@ -164,6 +169,7 @@ public struct Config: Configuration {
             searchBarCornerRadius: searchBarCornerRadius,
             separatorColor: separatorColor,
             showPhoneCodes: showPhoneCodes,
+            showNotch: showNotch,
             countriesSortingComparisonResult: countriesSortingComparisonResult
         )
     }
@@ -191,6 +197,7 @@ public struct Config: Configuration {
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
         showPhoneCodes: Bool = true,
+        showNotch: Bool = false,
         countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
         self.countryNameTextColor = countryNameTextColor
@@ -216,6 +223,7 @@ public struct Config: Configuration {
         self.searchBarCornerRadius = searchBarCornerRadius
         self.separatorColor = separatorColor
         self.showPhoneCodes = showPhoneCodes
+        self.showNotch = showNotch
         self.countriesSortingComparisonResult = countriesSortingComparisonResult
     }
 }
