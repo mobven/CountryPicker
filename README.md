@@ -63,6 +63,15 @@ public protocol Configuration {
     var selectedCountryCodeCornerRadius: CGFloat { get set }
     var countryCodeFont: UIFont { get set }
     var countryCodeTextColor: UIColor { get set }
+    var countryImageHeigth: CGFloat { get set }
+    var countryImageSpacing: CGFloat { get set }
+    var closeButtonTextColor: UIColor { get set }
+    var closeButtonFont: UIFont { get set }
+    @available(*, deprecated, message: "Use `closeButtonStyle` instead")
+    var closeButtonText: String { get set }
+    // Default value .title(title: "Close", textColor: .systemGreen, font: .systemFont(ofSize: 16))
+    var closeButtonStyle: DismissButtonStyle { get set }
+    var closeButtonAlignment: CloseButtonAlignment { get set }
     var titleTextColor: UIColor { get set }
     var titleFont: UIFont { get set }
     var titleText: String { get set }
@@ -70,16 +79,21 @@ public protocol Configuration {
     var searchBarBackgroundColor: UIColor { get set }
     var searchBarPlaceholderColor: UIColor { get set }
     var searchBarFont: UIFont { get set }
+    var searchBarHeight: CGFloat { get set }
+    var searchBarInsets: UIEdgeInsets { get set }
     var searchBarLeftImage: UIImage? { get set }
+    var searchIconHeight: CGFloat { get set }
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
     // Default value true.
-    var showPhoneCodes: Bool { get set } 
+    var showPhoneCodes: Bool { get set }
+    var showNotch: Bool { get set }
+    var notchColor: UIColor { get set }
+    var showTopSeperator: Bool { get set }
+    var seperatorInsets: UIEdgeInsets { get set }
     // Default value .orderedSame
     var countriesSortingComparisonResult: ComparisonResult { get set }
-    // Default value .title(title: "Close", textColor: .systemGreen, font: .systemFont(ofSize: 16))
-    var closeButtonStyle: DismissButtonStyle { get set }
 }
 ```
 ##### Example 
