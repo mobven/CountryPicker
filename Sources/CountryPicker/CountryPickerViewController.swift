@@ -177,6 +177,12 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     func setupLayouts() {
+        tableView.separatorInset = UIEdgeInsets(
+            top: CountryManager.shared.config.seperatorInsets.top,
+            left: CountryManager.shared.config.seperatorInsets.left,
+            bottom: CountryManager.shared.config.seperatorInsets.bottom,
+            right: CountryManager.shared.config.seperatorInsets.right
+        )
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true

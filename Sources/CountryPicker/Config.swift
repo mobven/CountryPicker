@@ -40,8 +40,9 @@ public protocol Configuration {
     var searchBarCornerRadius: CGFloat { get set }
     var separatorColor: UIColor { get set }
     var showPhoneCodes: Bool { get set }
-    var showNotch: Bool {get set }
-    var showTopSeperator: Bool {get set }
+    var showNotch: Bool { get set }
+    var showTopSeperator: Bool { get set }
+    var seperatorInsets: UIEdgeInsets { get set }
     var countriesSortingComparisonResult: ComparisonResult { get set }
 }
 
@@ -136,6 +137,9 @@ public struct Config: Configuration {
     /// show / hide topSeperator
     public var showTopSeperator: Bool
 
+    /// insets of seperator
+    public var seperatorInsets: UIEdgeInsets
+
     /// sort by localized country names
     public var countriesSortingComparisonResult: ComparisonResult
 
@@ -169,6 +173,7 @@ public struct Config: Configuration {
         showPhoneCodes: Bool = true,
         showNotch: Bool = false,
         showTopSeperator: Bool = true,
+        seperatorInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0),
         countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
         self.init(
@@ -200,6 +205,7 @@ public struct Config: Configuration {
             showPhoneCodes: showPhoneCodes,
             showNotch: showNotch,
             showTopSeperator: showTopSeperator,
+            seperatorInsets: seperatorInsets,
             countriesSortingComparisonResult: countriesSortingComparisonResult
         )
     }
@@ -212,7 +218,7 @@ public struct Config: Configuration {
         selectedCountryCodeCornerRadius: CGFloat = 8,
         countryCodeFont: UIFont = UIFont.systemFont(ofSize: 16),
         countryCodeTextColor: UIColor = ColorCompatibility.systemGray2,
-        countryImageHeigth: CGFloat = 30.0,
+        countryImageHeigth: CGFloat = 20.0,
         countryImageSpacing: CGFloat = 3.0,
         closeButtonStyle: DismissButtonStyle = .title(
             title: "Close", textColor: .systemGreen, font: .systemFont(ofSize: 16)
@@ -233,6 +239,7 @@ public struct Config: Configuration {
         showPhoneCodes: Bool = true,
         showNotch: Bool = false,
         showTopSeperator: Bool = true,
+        seperatorInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0),
         countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
         self.countryNameTextColor = countryNameTextColor
@@ -264,6 +271,7 @@ public struct Config: Configuration {
         self.showPhoneCodes = showPhoneCodes
         self.showNotch = showNotch
         self.showTopSeperator = showTopSeperator
+        self.seperatorInsets = seperatorInsets
         self.countriesSortingComparisonResult = countriesSortingComparisonResult
     }
 }
