@@ -207,7 +207,12 @@ public final class CountryPickerViewController: UIViewController {
 
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
-        closeButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
+        switch CountryManager.shared.config.closeButtonAlignment {
+        case .leading:
+            closeButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 12).isActive = true
+        case .trailling:
+            closeButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
+        }
 
         searchTextField.translatesAutoresizingMaskIntoConstraints = false
         searchTextField.heightAnchor.constraint(

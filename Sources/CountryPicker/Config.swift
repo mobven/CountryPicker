@@ -26,6 +26,7 @@ public protocol Configuration {
     @available(*, deprecated, message: "Use `closeButtonStyle` instead")
     var closeButtonText: String { get set }
     var closeButtonStyle: DismissButtonStyle { get set }
+    var closeButtonAlignment: CloseButtonAlignment { get set }
     var titleTextColor: UIColor { get set }
     var titleFont: UIFont { get set }
     var titleText: String { get set }
@@ -88,6 +89,9 @@ public struct Config: Configuration {
 
     /// The style of the close button, which can be either an icon or a text title.
     public var closeButtonStyle: DismissButtonStyle
+
+    /// alignment of the close button
+    public var closeButtonAlignment: CloseButtonAlignment
 
     /// textColor of titleLabel
     public var titleTextColor: UIColor
@@ -157,6 +161,7 @@ public struct Config: Configuration {
         closeButtonTextColor: UIColor = .systemGreen,
         closeButtonFont: UIFont = UIFont.systemFont(ofSize: 16),
         closeButtonText: String = "Close",
+        closeButtonAlignment: CloseButtonAlignment = .trailling,
         titleTextColor: UIColor = ColorCompatibility.label,
         titleFont: UIFont = UIFont.boldSystemFont(ofSize: 18),
         titleText: String = "Select Country",
@@ -189,6 +194,7 @@ public struct Config: Configuration {
             closeButtonStyle: .title(
                 title: closeButtonText, textColor: closeButtonTextColor, font: closeButtonFont
             ),
+            closeButtonAlignment: closeButtonAlignment,
             titleTextColor: titleTextColor,
             titleFont: titleFont,
             titleText: titleText,
@@ -223,6 +229,7 @@ public struct Config: Configuration {
         closeButtonStyle: DismissButtonStyle = .title(
             title: "Close", textColor: .systemGreen, font: .systemFont(ofSize: 16)
         ),
+        closeButtonAlignment: CloseButtonAlignment = .trailling,
         titleTextColor: UIColor = ColorCompatibility.label,
         titleFont: UIFont = UIFont.boldSystemFont(ofSize: 18),
         titleText: String = "Select Country",
@@ -255,6 +262,7 @@ public struct Config: Configuration {
         self.closeButtonFont = UIFont.systemFont(ofSize: 16)
         self.closeButtonText = "Close"
         self.closeButtonStyle = closeButtonStyle
+        self.closeButtonAlignment = closeButtonAlignment
         self.titleTextColor = titleTextColor
         self.titleFont = titleFont
         self.searchBarHeight = searchBarHeight
