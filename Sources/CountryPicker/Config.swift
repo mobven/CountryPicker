@@ -19,9 +19,11 @@ public protocol Configuration {
     var selectedCountryCodeCornerRadius: CGFloat { get set }
     var countryCodeFont: UIFont { get set }
     var countryCodeTextColor: UIColor { get set }
-    var countryImageHeigth: CGFloat { get set }
+    var countryImageHeight: CGFloat { get set }
     var countryImageSpacing: CGFloat { get set }
+    @available(*, deprecated, message: "Use `closeButtonStyle` instead")
     var closeButtonTextColor: UIColor { get set }
+    @available(*, deprecated, message: "Use `closeButtonStyle` instead")
     var closeButtonFont: UIFont { get set }
     @available(*, deprecated, message: "Use `closeButtonStyle` instead")
     var closeButtonText: String { get set }
@@ -40,12 +42,12 @@ public protocol Configuration {
     var searchIconHeight: CGFloat { get set }
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
+    @available(*, deprecated, message: "Use `seperatorAppearance` instead")
     var separatorColor: UIColor { get set }
+    var seperatorAppearance: SeperatorAppearance { get set }
     var showPhoneCodes: Bool { get set }
-    var showNotch: Bool { get set }
-    var notchColor: UIColor { get set }
-    var showTopSeperator: Bool { get set }
     var seperatorInsets: UIEdgeInsets { get set }
+    var notchAppearance: NotchAppearance { get set }
     var countriesSortingComparisonResult: ComparisonResult { get set }
 }
 
@@ -72,7 +74,7 @@ public struct Config: Configuration {
     public var countryCodeTextColor: UIColor
 
     /// imageHeight of countryImage
-    public var countryImageHeigth: CGFloat
+    public var countryImageHeight: CGFloat
 
     /// spacing of countryImage
     public var countryImageSpacing: CGFloat
@@ -135,22 +137,20 @@ public struct Config: Configuration {
     public var searchBarCornerRadius: CGFloat
 
     /// background color of separatorView
+    @available(*, deprecated, message: "Use `seperatorAppearance` instead")
     public var separatorColor: UIColor
+
+    /// The style of the seperator view, which can be either an none or a color.
+    public var seperatorAppearance: SeperatorAppearance
 
     /// show /  hide phone numbers
     public var showPhoneCodes: Bool
 
-    /// show /  hide notch
-    public var showNotch: Bool
-
-    /// color of notch
-    public var notchColor: UIColor
-
-    /// show / hide topSeperator
-    public var showTopSeperator: Bool
-
     /// insets of seperator
     public var seperatorInsets: UIEdgeInsets
+
+    /// The style of the notch view, which can be either an none or a color.
+    public var notchAppearance: NotchAppearance
 
     /// sort by localized country names
     public var countriesSortingComparisonResult: ComparisonResult
@@ -164,12 +164,12 @@ public struct Config: Configuration {
         selectedCountryCodeCornerRadius: CGFloat = 8,
         countryCodeFont: UIFont = UIFont.systemFont(ofSize: 16),
         countryCodeTextColor: UIColor = ColorCompatibility.systemGray2,
-        countryImageHeigth: CGFloat = 20.0,
+        countryImageHeight: CGFloat = 20.0,
         countryImageSpacing: CGFloat = 3.0,
         closeButtonTextColor: UIColor = .systemGreen,
         closeButtonFont: UIFont = UIFont.systemFont(ofSize: 16),
         closeButtonText: String = "Close",
-        closeButtonAlignment: CloseButtonAlignment = .trailling,
+        closeButtonAlignment: CloseButtonAlignment = .trailing,
         titleTextColor: UIColor = ColorCompatibility.label,
         titleFont: UIFont = UIFont.boldSystemFont(ofSize: 18),
         titleText: String = "Select Country",
@@ -184,11 +184,10 @@ public struct Config: Configuration {
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
+        seperatorAppearance: SeperatorAppearance = .colored(color: ColorCompatibility.systemGray5),
         showPhoneCodes: Bool = true,
-        showNotch: Bool = false,
-        notchColor: UIColor = ColorCompatibility.systemGray2,
-        showTopSeperator: Bool = true,
         seperatorInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0),
+        notchAppearance: NotchAppearance = .none,
         countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
         self.init(
@@ -199,7 +198,7 @@ public struct Config: Configuration {
             selectedCountryCodeCornerRadius: selectedCountryCodeCornerRadius,
             countryCodeFont: countryCodeFont,
             countryCodeTextColor: countryCodeTextColor,
-            countryImageHeigth: countryImageHeigth,
+            countryImageHeight: countryImageHeight,
             countryImageSpacing: countryImageSpacing,
             closeButtonStyle: .title(
                 title: closeButtonText, textColor: closeButtonTextColor, font: closeButtonFont
@@ -219,11 +218,10 @@ public struct Config: Configuration {
             searchBarClearImage: searchBarClearImage,
             searchBarCornerRadius: searchBarCornerRadius,
             separatorColor: separatorColor,
+            seperatorAppearance: seperatorAppearance,
             showPhoneCodes: showPhoneCodes,
-            showNotch: showNotch,
-            notchColor: notchColor,
-            showTopSeperator: showTopSeperator,
             seperatorInsets: seperatorInsets,
+            notchAppearance: notchAppearance,
             countriesSortingComparisonResult: countriesSortingComparisonResult
         )
     }
@@ -236,12 +234,12 @@ public struct Config: Configuration {
         selectedCountryCodeCornerRadius: CGFloat = 8,
         countryCodeFont: UIFont = UIFont.systemFont(ofSize: 16),
         countryCodeTextColor: UIColor = ColorCompatibility.systemGray2,
-        countryImageHeigth: CGFloat = 20.0,
+        countryImageHeight: CGFloat = 20.0,
         countryImageSpacing: CGFloat = 3.0,
         closeButtonStyle: DismissButtonStyle = .title(
             title: "Close", textColor: .systemGreen, font: .systemFont(ofSize: 16)
         ),
-        closeButtonAlignment: CloseButtonAlignment = .trailling,
+        closeButtonAlignment: CloseButtonAlignment = .trailing,
         titleTextColor: UIColor = ColorCompatibility.label,
         titleFont: UIFont = UIFont.boldSystemFont(ofSize: 18),
         titleText: String = "Select Country",
@@ -256,11 +254,10 @@ public struct Config: Configuration {
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
+        seperatorAppearance: SeperatorAppearance = .colored(color: ColorCompatibility.systemGray5),
         showPhoneCodes: Bool = true,
-        showNotch: Bool = false,
-        notchColor: UIColor = ColorCompatibility.systemGray2,
-        showTopSeperator: Bool = true,
         seperatorInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0),
+        notchAppearance: NotchAppearance = .none,
         countriesSortingComparisonResult: ComparisonResult = .orderedSame
     ) {
         self.countryNameTextColor = countryNameTextColor
@@ -269,7 +266,7 @@ public struct Config: Configuration {
         self.selectedCountryCodeTextColor = selectedCountryCodeTextColor
         self.countryCodeFont = countryCodeFont
         self.countryCodeTextColor = countryCodeTextColor
-        self.countryImageHeigth = countryImageHeigth
+        self.countryImageHeight = countryImageHeight
         self.countryImageSpacing = countryImageSpacing
         self.selectedCountryCodeCornerRadius = selectedCountryCodeCornerRadius
         self.closeButtonTextColor = .systemGreen
@@ -291,11 +288,10 @@ public struct Config: Configuration {
         self.searchBarClearImage = searchBarClearImage
         self.searchBarCornerRadius = searchBarCornerRadius
         self.separatorColor = separatorColor
+        self.seperatorAppearance = seperatorAppearance
         self.showPhoneCodes = showPhoneCodes
-        self.showNotch = showNotch
-        self.notchColor = notchColor
-        self.showTopSeperator = showTopSeperator
         self.seperatorInsets = seperatorInsets
+        self.notchAppearance = notchAppearance
         self.countriesSortingComparisonResult = countriesSortingComparisonResult
     }
 }

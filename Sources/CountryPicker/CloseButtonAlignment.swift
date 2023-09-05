@@ -10,5 +10,5 @@ import UIKit
 
 public enum CloseButtonAlignment {
     case leading
-    case trailling
+    case trailing
 }

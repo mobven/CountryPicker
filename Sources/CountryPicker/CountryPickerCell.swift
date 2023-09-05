@@ -21,7 +21,7 @@ public final class CountryPickerCell: UITableViewCell {
 
     lazy var countryFlagLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: CountryManager.shared.config.countryImageHeigth)
+        label.font = UIFont.systemFont(ofSize: CountryManager.shared.config.countryImageHeight)
         return label
     }()
 

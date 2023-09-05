@@ -10,6 +10,6 @@ import UIKit
 
 public enum SeperatorAppearance {
     case none
-    case colored(color: UIColor, inset: UIEdgeInsets)
+    case colored(color: UIColor)
 }
 

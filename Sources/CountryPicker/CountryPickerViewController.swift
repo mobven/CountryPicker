@@ -29,11 +29,13 @@ public final class CountryPickerViewController: UIViewController {
 
     lazy var notchView: UIView = {
         let view = UIView()
-        if CountryManager.shared.config.showNotch {
+        switch CountryManager.shared.config.notchAppearance {
+        case .none: break
+        case let .colored(color: color):
             view.frame = CGRect(x: 0, y: 0, width: 40.0, height: 4.0)
             view.layer.cornerRadius = 2.0
             view.layer.masksToBounds = true
-            view.backgroundColor = CountryManager.shared.config.notchColor
+            view.backgroundColor = color
         }
         return view
     }()
@@ -73,8 +75,12 @@ public final class CountryPickerViewController: UIViewController {
 
     lazy var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = CountryManager.shared.config.separatorColor
-        view.isHidden = !CountryManager.shared.config.showTopSeperator
+        switch CountryManager.shared.config.seperatorAppearance {
+        case .none:
+            view.isHidden = true
+        case let .colored(color: color):
+            view.backgroundColor = color
+        }
         return view
     }()
 
@@ -85,6 +91,12 @@ public final class CountryPickerViewController: UIViewController {
         tableView.register(CountryPickerCell.self, forCellReuseIdentifier: CountryPickerCell.reuseIdentifier)
         tableView.tableFooterView = UIView()
         tableView.keyboardDismissMode = .onDrag
+        tableView.separatorInset = UIEdgeInsets(
+            top: CountryManager.shared.config.seperatorInsets.top,
+            left: CountryManager.shared.config.seperatorInsets.left,
+            bottom: CountryManager.shared.config.seperatorInsets.bottom,
+            right: CountryManager.shared.config.seperatorInsets.right
+        )
         return tableView
     }()
 
@@ -177,12 +189,6 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     func setupLayouts() {
-        tableView.separatorInset = UIEdgeInsets(
-            top: CountryManager.shared.config.seperatorInsets.top,
-            left: CountryManager.shared.config.seperatorInsets.left,
-            bottom: CountryManager.shared.config.seperatorInsets.bottom,
-            right: CountryManager.shared.config.seperatorInsets.right
-        )
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -210,7 +216,7 @@ public final class CountryPickerViewController: UIViewController {
         switch CountryManager.shared.config.closeButtonAlignment {
         case .leading:
             closeButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 12).isActive = true
-        case .trailling:
+        case .trailing:
             closeButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
         }
 
