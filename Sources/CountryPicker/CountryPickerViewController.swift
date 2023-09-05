@@ -27,6 +27,19 @@ public final class CountryPickerViewController: UIViewController {
         return label
     }()
 
+    lazy var notchView: UIView = {
+        let view = UIView()
+        switch CountryManager.shared.config.notchAppearance {
+        case .none: break
+        case let .colored(color: color):
+            view.frame = CGRect(x: 0, y: 0, width: 40.0, height: 4.0)
+            view.layer.cornerRadius = 2.0
+            view.layer.masksToBounds = true
+            view.backgroundColor = color
+        }
+        return view
+    }()
+
     lazy var closeButton: UIButton = {
         let button = UIButton()
         switch CountryManager.shared.config.closeButtonStyle {
@@ -62,7 +75,12 @@ public final class CountryPickerViewController: UIViewController {
 
     lazy var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = CountryManager.shared.config.separatorColor
+        switch CountryManager.shared.config.seperatorAppearance {
+        case .none:
+            view.isHidden = true
+        case let .colored(color: color):
+            view.backgroundColor = color
+        }
         return view
     }()
 
@@ -73,6 +91,12 @@ public final class CountryPickerViewController: UIViewController {
         tableView.register(CountryPickerCell.self, forCellReuseIdentifier: CountryPickerCell.reuseIdentifier)
         tableView.tableFooterView = UIView()
         tableView.keyboardDismissMode = .onDrag
+        tableView.separatorInset = UIEdgeInsets(
+            top: CountryManager.shared.config.seperatorInsets.top,
+            left: CountryManager.shared.config.seperatorInsets.left,
+            bottom: CountryManager.shared.config.seperatorInsets.bottom,
+            right: CountryManager.shared.config.seperatorInsets.right
+        )
         return tableView
     }()
 
@@ -111,7 +135,7 @@ public final class CountryPickerViewController: UIViewController {
     // MARK: - Constants
 
     private let iconPadding: CGFloat = 12
-    private let iconHeight: CGFloat = 16
+    private var iconHeight: CGFloat = CountryManager.shared.config.searchIconHeight
     private let estimatedCellHeight: CGFloat = 52
 
     private var countries: [Country] = []
@@ -155,6 +179,7 @@ public final class CountryPickerViewController: UIViewController {
 
     func setupViews() {
         headerView.addSubviews(
+            notchView,
             titleLabel,
             closeButton,
             searchTextField,
@@ -174,22 +199,42 @@ public final class CountryPickerViewController: UIViewController {
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        headerView.heightAnchor.constraint(equalToConstant: 132).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 142).isActive = true
+
+        notchView.translatesAutoresizingMaskIntoConstraints = false
+        notchView.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        notchView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        notchView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 6).isActive = true
+        notchView.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 21).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 32).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
 
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
-        closeButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
+        switch CountryManager.shared.config.closeButtonAlignment {
+        case .leading:
+            closeButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 12).isActive = true
+        case .trailing:
+            closeButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
+        }
 
         searchTextField.translatesAutoresizingMaskIntoConstraints = false
-        searchTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        searchTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 23).isActive = true
-        searchTextField.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20).isActive = true
-        searchTextField.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -21).isActive = true
-        searchTextField.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
+        searchTextField.heightAnchor.constraint(
+            equalToConstant: CountryManager.shared.config.searchBarHeight).isActive = true
+        searchTextField.topAnchor.constraint(
+            equalTo: titleLabel.bottomAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.top).isActive = true
+        searchTextField.leadingAnchor.constraint(
+            equalTo: headerView.leadingAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.left).isActive = true
+        searchTextField.bottomAnchor.constraint(
+            equalTo: headerView.bottomAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.bottom).isActive = true
+        searchTextField.trailingAnchor.constraint(
+            equalTo: headerView.trailingAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.right).isActive = true
 
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true

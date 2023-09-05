@@ -19,6 +19,12 @@ public final class CountryPickerCell: UITableViewCell {
         return label
     }()
 
+    lazy var countryFlagLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: CountryManager.shared.config.countryImageHeight)
+        return label
+    }()
+
     lazy var countryCodeLabel: UILabel = {
         let label = UILabel()
         label.font = CountryManager.shared.config.countryCodeFont
@@ -58,6 +64,7 @@ public final class CountryPickerCell: UITableViewCell {
     func setupViews() {
         contentView.addSubview(stackView)
 
+        stackView.addArrangedSubview(countryFlagLabel)
         stackView.addArrangedSubview(countryNameLabel)
 
         if CountryManager.shared.config.showPhoneCodes {
@@ -86,6 +93,9 @@ public final class CountryPickerCell: UITableViewCell {
                 .isActive = true
         }
 
+        countryFlagLabel.setContentHuggingPriority(.required, for: .horizontal)
+        countryFlagLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        stackView.spacing = CountryManager.shared.config.countryImageSpacing
         stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12).isActive = true
@@ -94,7 +104,8 @@ public final class CountryPickerCell: UITableViewCell {
 
     func set(country: Country, selectedCountry: String) {
         accessibilityIdentifier = country.isoCode
-        countryNameLabel.text = country.isoCode.getFlag() + " " + country.localizedName
+        countryFlagLabel.text = country.isoCode.getFlag()
+        countryNameLabel.text = country.localizedName
         countryCodeLabel.text = "+" + country.phoneCode
 
         if selectedCountry == country.isoCode {
