@@ -65,7 +65,9 @@ public protocol Configuration {
     var countryCodeTextColor: UIColor { get set }
     var countryImageHeigth: CGFloat { get set }
     var countryImageSpacing: CGFloat { get set }
+    @available(*, deprecated, message: "Use `closeButtonStyle` instead")
     var closeButtonTextColor: UIColor { get set }
+    @available(*, deprecated, message: "Use `closeButtonStyle` instead")
     var closeButtonFont: UIFont { get set }
     @available(*, deprecated, message: "Use `closeButtonStyle` instead")
     var closeButtonText: String { get set }
@@ -85,12 +87,11 @@ public protocol Configuration {
     var searchIconHeight: CGFloat { get set }
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
+    @available(*, deprecated, message: "Use `seperatorAppearance` instead")
     var separatorColor: UIColor { get set }
+    var seperatorAppearance: SeperatorAppearance { get set }
     // Default value true.
     var showPhoneCodes: Bool { get set }
-    var showNotch: Bool { get set }
-    var notchColor: UIColor { get set }
-    var showTopSeperator: Bool { get set }
     var seperatorInsets: UIEdgeInsets { get set }
     // Default value .orderedSame
     var countriesSortingComparisonResult: ComparisonResult { get set }
