@@ -87,6 +87,8 @@ public protocol Configuration {
     var searchIconHeight: CGFloat { get set }
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
+    var searchBarBorderColor: UIColor { get set }
+    var searchBarBorderWidth: CGFloat { get set }
     @available(*, deprecated, message: "Use `seperatorAppearance` instead")
     var separatorColor: UIColor { get set }
     var seperatorAppearance: SeperatorAppearance { get set }
