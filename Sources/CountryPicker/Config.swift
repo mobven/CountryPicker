@@ -42,6 +42,8 @@ public protocol Configuration {
     var searchIconHeight: CGFloat { get set }
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
+    var searchBarBorderColor: UIColor { get set }
+    var searchBarBorderWidth: CGFloat { get set }
     @available(*, deprecated, message: "Use `seperatorAppearance` instead")
     var separatorColor: UIColor { get set }
     var seperatorAppearance: SeperatorAppearance { get set }
@@ -136,6 +138,12 @@ public struct Config: Configuration {
     /// corner radius of searchTextField
     public var searchBarCornerRadius: CGFloat
 
+    /// border color of searchTextField
+    public var searchBarBorderColor: UIColor
+
+    /// border width of searchTextField
+    public var searchBarBorderWidth: CGFloat
+
     /// background color of separatorView
     @available(*, deprecated, message: "Use `seperatorAppearance` instead")
     public var separatorColor: UIColor
@@ -183,6 +191,8 @@ public struct Config: Configuration {
         searchIconHeight: CGFloat = 16.0,
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
+        searchBarBorderColor: UIColor = ColorCompatibility.systemGray5,
+        searchBarBorderWidth: CGFloat = .zero,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
         seperatorAppearance: SeperatorAppearance = .colored(color: ColorCompatibility.systemGray5),
         showPhoneCodes: Bool = true,
@@ -217,6 +227,8 @@ public struct Config: Configuration {
             searchIconHeight: searchIconHeight,
             searchBarClearImage: searchBarClearImage,
             searchBarCornerRadius: searchBarCornerRadius,
+            searchBarBorderColor: searchBarBorderColor,
+            searchBarBorderWidth: searchBarBorderWidth,
             separatorColor: separatorColor,
             seperatorAppearance: seperatorAppearance,
             showPhoneCodes: showPhoneCodes,
@@ -253,6 +265,8 @@ public struct Config: Configuration {
         searchIconHeight: CGFloat = 16.0,
         searchBarClearImage: UIImage? = nil,
         searchBarCornerRadius: CGFloat = 4,
+        searchBarBorderColor: UIColor = ColorCompatibility.systemGray5,
+        searchBarBorderWidth: CGFloat = .zero,
         separatorColor: UIColor = ColorCompatibility.systemGray5,
         seperatorAppearance: SeperatorAppearance = .colored(color: ColorCompatibility.systemGray5),
         showPhoneCodes: Bool = true,
@@ -287,6 +301,8 @@ public struct Config: Configuration {
         self.searchIconHeight = searchIconHeight
         self.searchBarClearImage = searchBarClearImage
         self.searchBarCornerRadius = searchBarCornerRadius
+        self.searchBarBorderColor = searchBarBorderColor
+        self.searchBarBorderWidth = searchBarBorderWidth
         self.separatorColor = separatorColor
         self.seperatorAppearance = seperatorAppearance
         self.showPhoneCodes = showPhoneCodes

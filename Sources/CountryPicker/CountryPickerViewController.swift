@@ -61,6 +61,8 @@ public final class CountryPickerViewController: UIViewController {
         textField.backgroundColor = CountryManager.shared.config.searchBarBackgroundColor
         textField.delegate = self
         textField.font = CountryManager.shared.config.searchBarFont
+        textField.layer.borderColor = CountryManager.shared.config.searchBarBorderColor.cgColor
+        textField.layer.borderWidth = CountryManager.shared.config.searchBarBorderWidth
         textField.attributedPlaceholder = NSAttributedString(
             string: CountryManager.shared.config.searchBarPlaceholder,
             attributes: [
