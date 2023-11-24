@@ -63,9 +63,17 @@ public protocol Configuration {
     var selectedCountryCodeCornerRadius: CGFloat { get set }
     var countryCodeFont: UIFont { get set }
     var countryCodeTextColor: UIColor { get set }
+    var countryImageHeigth: CGFloat { get set }
+    var countryImageSpacing: CGFloat { get set }
+    @available(*, deprecated, message: "Use `closeButtonStyle` instead")
     var closeButtonTextColor: UIColor { get set }
+    @available(*, deprecated, message: "Use `closeButtonStyle` instead")
     var closeButtonFont: UIFont { get set }
+    @available(*, deprecated, message: "Use `closeButtonStyle` instead")
     var closeButtonText: String { get set }
+    // Default value .title(title: "Close", textColor: .systemGreen, font: .systemFont(ofSize: 16))
+    var closeButtonStyle: DismissButtonStyle { get set }
+    var closeButtonAlignment: CloseButtonAlignment { get set }
     var titleTextColor: UIColor { get set }
     var titleFont: UIFont { get set }
     var titleText: String { get set }
@@ -73,10 +81,22 @@ public protocol Configuration {
     var searchBarBackgroundColor: UIColor { get set }
     var searchBarPlaceholderColor: UIColor { get set }
     var searchBarFont: UIFont { get set }
+    var searchBarHeight: CGFloat { get set }
+    var searchBarInsets: UIEdgeInsets { get set }
     var searchBarLeftImage: UIImage? { get set }
+    var searchIconHeight: CGFloat { get set }
     var searchBarClearImage: UIImage? { get set }
     var searchBarCornerRadius: CGFloat { get set }
+    var searchBarBorderColor: UIColor { get set }
+    var searchBarBorderWidth: CGFloat { get set }
+    @available(*, deprecated, message: "Use `seperatorAppearance` instead")
     var separatorColor: UIColor { get set }
+    var seperatorAppearance: SeperatorAppearance { get set }
+    // Default value true.
+    var showPhoneCodes: Bool { get set }
+    var seperatorInsets: UIEdgeInsets { get set }
+    // Default value .orderedSame
+    var countriesSortingComparisonResult: ComparisonResult { get set }
 }
 ```
 ##### Example 
@@ -122,7 +142,7 @@ or you can create your own `Config`
 For page title and close button text you can set localized text with `Configration` properties
 ```swift
   CountryManager.shared.config.titleText = "Country Picker"
-  CountryManager.shared.config.closeButtonText = "Close"
+  CountryManager.shared.config.closeButtonStyle = .title(title: "Close", textColor: .red, font: .systemFont(ofSize: 16))
 ```
 `CountryPicker` v1.0.0 is support RTL except displaying localized phone codes.
 

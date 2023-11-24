@@ -27,11 +27,30 @@ public final class CountryPickerViewController: UIViewController {
         return label
     }()
 
+    lazy var notchView: UIView = {
+        let view = UIView()
+        switch CountryManager.shared.config.notchAppearance {
+        case .none: break
+        case let .colored(color: color):
+            view.frame = CGRect(x: 0, y: 0, width: 40.0, height: 4.0)
+            view.layer.cornerRadius = 2.0
+            view.layer.masksToBounds = true
+            view.backgroundColor = color
+        }
+        return view
+    }()
+
     lazy var closeButton: UIButton = {
         let button = UIButton()
-        button.setTitle(CountryManager.shared.config.closeButtonText, for: .normal)
-        button.setTitleColor(CountryManager.shared.config.closeButtonTextColor, for: .normal)
-        button.titleLabel?.font = CountryManager.shared.config.closeButtonFont
+        switch CountryManager.shared.config.closeButtonStyle {
+        case let .icon(image):
+            let finalImage = image
+            button.setImage(finalImage, for: .normal)
+        case let .title(title, color, font):
+            button.setTitle(title, for: .normal)
+            button.setTitleColor(color, for: .normal)
+            button.titleLabel?.font = font
+        }
         button.addTarget(self, action: #selector(close), for: .touchUpInside)
         return button
     }()
@@ -42,11 +61,13 @@ public final class CountryPickerViewController: UIViewController {
         textField.backgroundColor = CountryManager.shared.config.searchBarBackgroundColor
         textField.delegate = self
         textField.font = CountryManager.shared.config.searchBarFont
+        textField.layer.borderColor = CountryManager.shared.config.searchBarBorderColor.cgColor
+        textField.layer.borderWidth = CountryManager.shared.config.searchBarBorderWidth
         textField.attributedPlaceholder = NSAttributedString(
             string: CountryManager.shared.config.searchBarPlaceholder,
             attributes: [
                 NSAttributedString.Key.foregroundColor:
-                    CountryManager.shared.config.searchBarPlaceholderColor
+                    CountryManager.shared.config.searchBarPlaceholderColor,
             ]
         )
         setSearchIcon(textField)
@@ -56,7 +77,12 @@ public final class CountryPickerViewController: UIViewController {
 
     lazy var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = CountryManager.shared.config.separatorColor
+        switch CountryManager.shared.config.seperatorAppearance {
+        case .none:
+            view.isHidden = true
+        case let .colored(color: color):
+            view.backgroundColor = color
+        }
         return view
     }()
 
@@ -67,6 +93,12 @@ public final class CountryPickerViewController: UIViewController {
         tableView.register(CountryPickerCell.self, forCellReuseIdentifier: CountryPickerCell.reuseIdentifier)
         tableView.tableFooterView = UIView()
         tableView.keyboardDismissMode = .onDrag
+        tableView.separatorInset = UIEdgeInsets(
+            top: CountryManager.shared.config.seperatorInsets.top,
+            left: CountryManager.shared.config.seperatorInsets.left,
+            bottom: CountryManager.shared.config.seperatorInsets.bottom,
+            right: CountryManager.shared.config.seperatorInsets.right
+        )
         return tableView
     }()
 
@@ -105,7 +137,7 @@ public final class CountryPickerViewController: UIViewController {
     // MARK: - Constants
 
     private let iconPadding: CGFloat = 12
-    private let iconHeight: CGFloat = 16
+    private var iconHeight: CGFloat = CountryManager.shared.config.searchIconHeight
     private let estimatedCellHeight: CGFloat = 52
 
     private var countries: [Country] = []
@@ -135,7 +167,9 @@ public final class CountryPickerViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        countries = CountryManager.shared.getCountries()
+        countries = CountryManager.shared.getCountries().sorted {
+            $0.localizedName.localizedCaseInsensitiveCompare($1.localizedName) == CountryManager.shared.config.countriesSortingComparisonResult
+        }
         filteredCountries = countries
         tableView.reloadData()
     }
@@ -147,6 +181,7 @@ public final class CountryPickerViewController: UIViewController {
 
     func setupViews() {
         headerView.addSubviews(
+            notchView,
             titleLabel,
             closeButton,
             searchTextField,
@@ -166,22 +201,42 @@ public final class CountryPickerViewController: UIViewController {
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        headerView.heightAnchor.constraint(equalToConstant: 132).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 142).isActive = true
+
+        notchView.translatesAutoresizingMaskIntoConstraints = false
+        notchView.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        notchView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        notchView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 6).isActive = true
+        notchView.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 21).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 32).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
 
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
-        closeButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
+        switch CountryManager.shared.config.closeButtonAlignment {
+        case .leading:
+            closeButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 12).isActive = true
+        case .trailing:
+            closeButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
+        }
 
         searchTextField.translatesAutoresizingMaskIntoConstraints = false
-        searchTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        searchTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 23).isActive = true
-        searchTextField.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20).isActive = true
-        searchTextField.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -21).isActive = true
-        searchTextField.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
+        searchTextField.heightAnchor.constraint(
+            equalToConstant: CountryManager.shared.config.searchBarHeight).isActive = true
+        searchTextField.topAnchor.constraint(
+            equalTo: titleLabel.bottomAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.top).isActive = true
+        searchTextField.leadingAnchor.constraint(
+            equalTo: headerView.leadingAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.left).isActive = true
+        searchTextField.bottomAnchor.constraint(
+            equalTo: headerView.bottomAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.bottom).isActive = true
+        searchTextField.trailingAnchor.constraint(
+            equalTo: headerView.trailingAnchor,
+            constant: CountryManager.shared.config.searchBarInsets.right).isActive = true
 
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
@@ -215,7 +270,7 @@ public final class CountryPickerViewController: UIViewController {
 // MARK: - UITableViewDataSource & UITableViewDelegate
 
 extension CountryPickerViewController: UITableViewDataSource, UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         filteredCountries.count
     }
 
@@ -230,16 +285,16 @@ extension CountryPickerViewController: UITableViewDataSource, UITableViewDelegat
         return cell
     }
 
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
 
-    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_: UITableView, estimatedHeightForRowAt _: IndexPath) -> CGFloat {
         estimatedCellHeight
     }
 
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate?.countryPicker(didSelect: self.filteredCountries[indexPath.row])
+    public func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.countryPicker(didSelect: filteredCountries[indexPath.row])
         dismiss(animated: true)
     }
 }
@@ -248,9 +303,14 @@ extension CountryPickerViewController: UITextFieldDelegate {
     public func textField(
         _ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String
     ) -> Bool {
-        guard let text = textField.text else { return true }
-        let finalText = NSString(string: text).replacingOccurrences(of: text, with: string, range: range)
+        guard let text = textField.text, let textRange = Range(range, in: text) else { return true }
+        let finalText = text.replacingCharacters(in: textRange, with: string)
         filter(for: finalText)
+        return true
+    }
+
+    public func textFieldShouldClear(_: UITextField) -> Bool {
+        clearText()
         return true
     }
 }
