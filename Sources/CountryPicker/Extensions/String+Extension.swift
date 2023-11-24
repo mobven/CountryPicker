@@ -10,10 +10,12 @@ import Foundation
 public extension String {
     /// Returns String unicode value of country flag for iso code
     func getFlag() -> String {
-        unicodeScalars
+        let flagString = unicodeScalars
             .map { 127_397 + $0.value }
             .compactMap(UnicodeScalar.init)
             .map(String.init)
             .joined()
+
+        return flagString.isEmpty ? "" : String(flagString.first!)
     }
 }

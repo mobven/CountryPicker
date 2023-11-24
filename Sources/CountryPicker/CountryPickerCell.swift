@@ -10,6 +10,7 @@ import UIKit
 
 public final class CountryPickerCell: UITableViewCell {
     static let reuseIdentifier = "countryCell"
+    var pickerMode: CountryPickerViewController.PickerMode = .countryCode
 
     lazy var countryNameLabel: UILabel = {
         let label = UILabel()
@@ -102,13 +103,18 @@ public final class CountryPickerCell: UITableViewCell {
         stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12).isActive = true
     }
 
-    func set(country: Country, selectedCountry: String) {
+    func set(country: Country, selectedCountry: String, pickerMode: CountryPickerViewController.PickerMode = .countryCode) {
         accessibilityIdentifier = country.isoCode
-        countryFlagLabel.text = country.isoCode.getFlag()
-        countryNameLabel.text = country.localizedName
-        countryCodeLabel.text = "+" + country.phoneCode
+        countryFlagLabel.text = pickerMode == .countryCode ? country.isoCode.getFlag() : country.currencyCode.getFlag()
+        countryNameLabel.text = pickerMode == .countryCode ? country.localizedName : country.currencyLocalizedName
 
-        if selectedCountry == country.isoCode {
+        if pickerMode == .countryCode {
+            countryCodeLabel.text = "+" + country.phoneCode
+        } else {
+            countryCodeLabel.text = country.currencyCode + " - " + country.currencySymbol
+        }
+
+        if selectedCountry == (pickerMode == .countryCode ? country.isoCode : country.currencyCode) {
             countryCodeContainerView.backgroundColor = CountryManager.shared.config.selectedCountryCodeBackgroundColor
             countryCodeLabel.textColor = CountryManager.shared.config.selectedCountryCodeTextColor
         } else {
