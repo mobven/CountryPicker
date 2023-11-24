@@ -33,4 +33,26 @@ public extension Country {
             .displayName(forKey: NSLocale.Key.identifier, value: id) ?? isoCode
         return name
     }
+
+    var currencyCode: String {
+        Locale(identifier:
+                Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: isoCode])
+        )
+        .currencyCode ?? ""
+    }
+
+    var currencyLocalizedName: String {
+        Locale(identifier:
+            Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: isoCode])
+        )
+        .localizedString(forCurrencyCode: currencyCode) ?? ""
+    }
+
+    var currencySymbol: String {
+        Locale(identifier:
+            Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: isoCode])
+        )
+        .currencySymbol ?? ""
+    }
+
 }

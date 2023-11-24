@@ -13,6 +13,8 @@ public protocol CountryPickerDelegate: AnyObject {
 }
 
 public final class CountryPickerViewController: UIViewController {
+    var pickerMode: PickerMode = .countryCode
+    
     lazy var headerView: UIView = {
         let view = UIView()
         view.backgroundColor = ColorCompatibility.systemBackground
@@ -146,11 +148,16 @@ public final class CountryPickerViewController: UIViewController {
     /// selectedCountry will be shown in the first cell, default is "TR"
     public var selectedCountry: String = "TR" {
         didSet {
-            if let selectedIndex = countries.firstIndex(where: { $0.isoCode == selectedCountry }) {
+            if let selectedIndex = countries.firstIndex(where: { pickerMode == .countryCode ? $0.isoCode == selectedCountry : $0.currencyCode == selectedCountry }) {
                 let country = countries[selectedIndex]
                 countries.remove(at: selectedIndex)
                 countries.insert(country, at: 0)
-                filteredCountries = countries
+                
+                if pickerMode == .countryCode {
+                    filteredCountries = countries
+                } else {
+                    filteredCountries = countries.removingDuplicates(by: \.currencyCode)
+                }
             }
         }
     }
@@ -164,13 +171,29 @@ public final class CountryPickerViewController: UIViewController {
         super.init(coder: coder)
         setup()
     }
+    
+    public init(pickerMode: PickerMode) {
+        super.init(nibName: nil, bundle: nil)
+        self.pickerMode = pickerMode
+        setup()
+    }
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        countries = CountryManager.shared.getCountries().sorted {
-            $0.localizedName.localizedCaseInsensitiveCompare($1.localizedName) == CountryManager.shared.config.countriesSortingComparisonResult
+        if pickerMode == .countryCode {
+            countries = CountryManager.shared.getCountries().sorted {
+                $0.localizedName.localizedCaseInsensitiveCompare($1.localizedName) == CountryManager.shared.config.countriesSortingComparisonResult
+            }
+            filteredCountries = countries
+        } else {
+            countries = CountryManager.shared.getCountries()
+                .sorted {
+                    $0.localizedName.localizedCaseInsensitiveCompare($1.localizedName) == CountryManager.shared.config.countriesSortingComparisonResult
+                }.removingDuplicates(by: \.currencyCode)
+            
+            filteredCountries = countries.removingDuplicates(by: \.currencyCode)
         }
-        filteredCountries = countries
+        
         tableView.reloadData()
     }
 
@@ -258,10 +281,20 @@ public final class CountryPickerViewController: UIViewController {
 
     func filter(for query: String?) {
         if query?.count == 0 {
-            filteredCountries = countries
+            if pickerMode == .countryCode {
+                filteredCountries = countries
+            } else {
+                filteredCountries = countries.removingDuplicates(by: \.currencyCode)
+            }
         } else if let text = query {
-            filteredCountries = countries
-                .filter { $0.localizedName.localizedLowercase.contains(text.localizedLowercase) }
+            if pickerMode == .countryCode {
+                filteredCountries = countries
+                    .filter { $0.localizedName.localizedLowercase.contains(text.localizedLowercase) }
+            } else {
+                filteredCountries = countries
+                    .removingDuplicates(by: \.currencyCode)
+                    .filter { $0.currencyLocalizedName.localizedLowercase.contains(text.localizedLowercase) }
+            }
         }
         tableView.reloadData()
     }
@@ -281,7 +314,7 @@ extension CountryPickerViewController: UITableViewDataSource, UITableViewDelegat
         )
             as? CountryPickerCell else { return UITableViewCell() }
         let item = filteredCountries[indexPath.row]
-        cell.set(country: item, selectedCountry: selectedCountry)
+        cell.set(country: item, selectedCountry: selectedCountry, pickerMode: pickerMode)
         return cell
     }
 
@@ -313,4 +346,14 @@ extension CountryPickerViewController: UITextFieldDelegate {
         clearText()
         return true
     }
+}
+
+// MARK: Models
+
+extension CountryPickerViewController {
+    
+    public enum PickerMode {
+        case countryCode, currency
+    }
+    
 }
